@@ -1,0 +1,14 @@
+{
+  "id": "HatchLuck",
+  "name": "Lucky Hatch",
+  "desc": "Higher chances of getting BETTER brainrot!",
+  "icon": "rbxassetid://83281803908005",
+  "highlightColor": {
+    "r": 0.4,
+    "g": 1.0,
+    "b": 0.0
+  },
+  "type": 0,
+  "order": 1,
+  "luck": 2
+}

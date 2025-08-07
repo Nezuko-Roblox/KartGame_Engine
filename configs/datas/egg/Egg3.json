@@ -1,0 +1,40 @@
+{
+  "id": "Egg3",
+  "name": "Epic Egg",
+  "icon": "rbxassetid://88932768248747",
+  "luck": "5x",
+  "rollItems": [
+    {
+      "itemId": "Item3",
+      "probability": 40.0
+    },
+    {
+      "itemId": "Item4",
+      "probability": 35.0
+    },
+    {
+      "itemId": "Item5",
+      "probability": 25.0
+    },
+    {
+      "itemId": "Item6",
+      "probability": 10.0
+    },
+    {
+      "itemId": "Item7",
+      "probability": 5.0
+    },
+    {
+      "itemId": "Item8",
+      "probability": 0.1
+    },
+    {
+      "itemId": "Item9",
+      "probability": 0.01
+    }
+  ],
+  "modelPath": "ReplicatedStorage.Assets.Eggs.Egg3",
+  "hatchTime": 30.0,
+  "cost": 2500,
+  "order": 3
+}

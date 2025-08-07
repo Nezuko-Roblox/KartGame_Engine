@@ -1,0 +1,16 @@
+{
+  "id": "Item11",
+  "name": "Brr Patapim",
+  "moneyBase": 90,
+  "size": "BigGuys",
+  "icons": {
+    "Normal": "rbxassetid://116410214171138",
+    "Golden": "rbxassetid://84112874389061",
+    "Diamond": "rbxassetid://114167849075913"
+  },
+  "refreshTime": 13.0,
+  "percent": 3.0,
+  "modelPath": "ReplicatedStorage.Assets.Placeables.Item11",
+  "order": 11,
+  "belongsTo": "Island1"
+}

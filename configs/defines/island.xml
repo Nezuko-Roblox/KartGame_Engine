@@ -1,0 +1,27 @@
+<module name="island" comment="岛屿系统配置">
+    
+    <!-- 传送带蛋配置 -->
+    <bean name="ConveyorEggConfig" comment="传送带蛋配置">
+        <var name="Name" type="string" comment="蛋的名称"/>
+        <var name="Weight" type="float" comment="权重值"/>
+    </bean>
+    
+    <!-- 岛屿设置配置 -->
+    <bean name="IslandSettings" comment="岛屿设置配置">
+        <var name="GLOBAL_EVENTS" type="bool" comment="是否启用全局事件"/>
+        <var name="COLLECT" type="bool" comment="是否可收集"/>
+        <var name="Conveyor" type="list,ConveyorEggConfig" comment="传送带蛋配置列表"/>
+    </bean>
+    
+    <!-- 岛屿基础配置 -->
+    <bean name="IslandConfig" comment="岛屿基础配置">
+        <var name="id" type="string" comment="岛屿ID"/>
+        <var name="name" type="string" comment="岛屿名称"/>
+        <var name="icon" type="string" comment="岛屿图标"/>
+        <var name="type" type="string" comment="岛屿类型"/>
+        <var name="order" type="int" comment="显示顺序"/>
+        <var name="toUnlock" type="int?" comment="解锁要求（可选）"/>
+        <var name="SETTINGS" type="IslandSettings" comment="岛屿设置"/>
+    </bean>
+
+</module>

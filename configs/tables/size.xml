@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tables>
+    <!-- 尺寸类别配置表 -->
+    <table name="SizeCategoryConfigTable" input="../datas/size" index="category" value="size.SizeCategoryConfig" mode="map" comment="尺寸类别配置表"/>
+</tables>

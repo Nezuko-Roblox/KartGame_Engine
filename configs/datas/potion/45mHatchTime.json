@@ -1,0 +1,14 @@
+{
+  "id": "45mHatchTime",
+  "name": "-4m Hatch Time",
+  "desc": "Take 45m off an eggs hatch time!",
+  "icon": "rbxassetid://100093880629384",
+  "highlightColor": {
+    "r": 1.0,
+    "g": 0.66,
+    "b": 0.96
+  },
+  "type": 1,
+  "order": 4,
+  "timeReduction": 2700.0
+}

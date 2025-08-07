@@ -1,0 +1,89 @@
+{
+  "category": "Default",
+  "sizes": [
+    {
+      "name": "Small",
+      "weight": 50,
+      "multRange": {
+        "min": 1.0,
+        "max": 1.2
+      },
+      "scaleRange": {
+        "min": 0.7,
+        "max": 0.8
+      }
+    },
+    {
+      "name": "Normal",
+      "weight": 910,
+      "multRange": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "scaleRange": {
+        "min": 1.0,
+        "max": 1.0
+      }
+    },
+    {
+      "name": "Medium",
+      "weight": 150,
+      "multRange": {
+        "min": 1.5,
+        "max": 1.8
+      },
+      "scaleRange": {
+        "min": 1.25,
+        "max": 1.35
+      }
+    },
+    {
+      "name": "Large",
+      "weight": 50,
+      "multRange": {
+        "min": 2.5,
+        "max": 5.0
+      },
+      "scaleRange": {
+        "min": 2.0,
+        "max": 2.5
+      }
+    },
+    {
+      "name": "Titanic",
+      "weight": 5,
+      "multRange": {
+        "min": 10.0,
+        "max": 15.0
+      },
+      "scaleRange": {
+        "min": 4.0,
+        "max": 5.0
+      }
+    },
+    {
+      "name": "TripleTitanic",
+      "weight": 1,
+      "multRange": {
+        "min": 35.0,
+        "max": 50.0
+      },
+      "scaleRange": {
+        "min": 5.0,
+        "max": 6.0
+      }
+    },
+    {
+      "name": "MEGA",
+      "weight": 0.05,
+      "multRange": {
+        "min": 150.0,
+        "max": 250.0
+      },
+      "scaleRange": {
+        "min": 6.0,
+        "max": 7.0
+      }
+    }
+  ]
+}

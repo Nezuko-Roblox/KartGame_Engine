@@ -1,0 +1,16 @@
+{
+  "id": "Item9",
+  "name": "Tralalero",
+  "moneyBase": 50,
+  "size": "BigGuys",
+  "icons": {
+    "Normal": "rbxassetid://129928311534194",
+    "Golden": "rbxassetid://72019622578776",
+    "Diamond": "rbxassetid://96533019073610"
+  },
+  "refreshTime": 8.0,
+  "percent": 3.0,
+  "modelPath": "ReplicatedStorage.Assets.Placeables.Item9",
+  "order": 9,
+  "belongsTo": "Island1"
+}

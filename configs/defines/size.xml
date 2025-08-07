@@ -1,0 +1,23 @@
+<module name="size" comment="尺寸系统配置">
+    
+    <!-- 数值范围配置 -->
+    <bean name="NumberRange" comment="数值范围配置">
+        <var name="min" type="float" comment="最小值"/>
+        <var name="max" type="float" comment="最大值"/>
+    </bean>
+    
+    <!-- 尺寸配置项 -->
+    <bean name="SizeConfig" comment="尺寸配置项">
+        <var name="name" type="string" comment="尺寸名称"/>
+        <var name="weight" type="float" comment="权重值"/>
+        <var name="multRange" type="NumberRange" comment="倍数范围"/>
+        <var name="scaleRange" type="NumberRange" comment="缩放范围"/>
+    </bean>
+    
+    <!-- 尺寸类别配置 -->
+    <bean name="SizeCategoryConfig" comment="尺寸类别配置">
+        <var name="category" type="string" comment="尺寸类别名称"/>
+        <var name="sizes" type="list,SizeConfig" comment="该类别下的尺寸配置列表"/>
+    </bean>
+
+</module>

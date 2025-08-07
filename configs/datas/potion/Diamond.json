@@ -1,0 +1,13 @@
+{
+  "id": "Diamond",
+  "name": "Diamond Mutation",
+  "desc": "Make any brainrot or egg golden!",
+  "icon": "rbxassetid://72129030339318",
+  "highlightColor": {
+    "r": 0.0,
+    "g": 0.68,
+    "b": 1.0
+  },
+  "type": 2,
+  "order": 7
+}

@@ -1,0 +1,16 @@
+{
+  "id": "Item3",
+  "name": "Garam",
+  "moneyBase": 5,
+  "size": "Default",
+  "icons": {
+    "Normal": "rbxassetid://108310922539712",
+    "Golden": "rbxassetid://93666685661609",
+    "Diamond": "rbxassetid://140625269767871"
+  },
+  "refreshTime": 2.0,
+  "percent": 2.0,
+  "modelPath": "ReplicatedStorage.Assets.Placeables.Item3",
+  "order": 3,
+  "belongsTo": "Island1"
+}

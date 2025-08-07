@@ -1,0 +1,30 @@
+<module name="potion" comment="药水系统配置">
+    
+    <!-- 药水类型枚举 -->
+    <enum name="PotionType" comment="药水类型">
+        <var name="Luck" value="0" comment="幸运"/>
+        <var name="Time" value="1" comment="时间"/>
+        <var name="Mutation" value="2" comment="变异"/>
+    </enum>
+    
+    <!-- 颜色配置 -->
+    <bean name="Color3" comment="颜色配置">
+        <var name="r" type="float" comment="红色分量"/>
+        <var name="g" type="float" comment="绿色分量"/>
+        <var name="b" type="float" comment="蓝色分量"/>
+    </bean>
+    
+    <!-- 药水基础配置 -->
+    <bean name="PotionConfig" comment="药水基础配置">
+        <var name="id" type="string" comment="药水ID"/>
+        <var name="name" type="string" comment="药水名称"/>
+        <var name="desc" type="string" comment="药水描述"/>
+        <var name="icon" type="string" comment="药水图标资源ID"/>
+        <var name="highlightColor" type="Color3" comment="高亮颜色"/>
+        <var name="type" type="PotionType" comment="药水类型"/>
+        <var name="order" type="int" comment="显示顺序"/>
+        <var name="luck" type="int?" comment="幸运值（幸运类型药水）"/>
+        <var name="timeReduction" type="float?" comment="时间减少（秒，时间类型药水）"/>
+    </bean>
+
+</module>

@@ -1,0 +1,21 @@
+<module name="resource" comment="资源系统基础配置">
+    
+    <!-- 资源基础配置 -->
+    <bean name="ResourceConfig" comment="资源基础配置">
+        <var name="id" type="string" comment="资源ID"/>
+        <var name="name" type="string" comment="资源名称"/>
+        <var name="icon" type="string?" comment="资源图标路径"/>
+        <var name="order" type="int?" comment="排序顺序"/>
+    </bean>
+    
+    <!-- 具有成本的资源配置 -->
+    <bean name="CostResourceConfig" parent="ResourceConfig" comment="具有成本的资源配置">
+        <var name="cost" type="int" comment="资源成本"/>
+    </bean>
+    
+    <!-- 具有模型的资源配置 -->
+    <bean name="ModelResourceConfig" parent="ResourceConfig" comment="具有模型的资源配置">
+        <var name="modelPath" type="string" comment="3D模型路径"/>
+    </bean>
+
+</module>

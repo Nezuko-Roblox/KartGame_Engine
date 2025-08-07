@@ -1,0 +1,44 @@
+{
+  "id": "Egg5",
+  "name": "Flame Egg",
+  "icon": "rbxassetid://107297955470731",
+  "luck": "100x",
+  "rollItems": [
+    {
+      "itemId": "Item6",
+      "probability": 33.0
+    },
+    {
+      "itemId": "Item7",
+      "probability": 25.0
+    },
+    {
+      "itemId": "Item8",
+      "probability": 19.0
+    },
+    {
+      "itemId": "Item9",
+      "probability": 13.0
+    },
+    {
+      "itemId": "Item10",
+      "probability": 6.0
+    },
+    {
+      "itemId": "Item11",
+      "probability": 3.0
+    },
+    {
+      "itemId": "Item12",
+      "probability": 0.1
+    },
+    {
+      "itemId": "Item13",
+      "probability": 0.01
+    }
+  ],
+  "modelPath": "ReplicatedStorage.Assets.Eggs.Egg5",
+  "hatchTime": 300.0,
+  "cost": 100000,
+  "order": 5
+}

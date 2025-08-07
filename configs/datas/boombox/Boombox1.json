@@ -1,0 +1,16 @@
+{
+	"id": "Boombox1",
+	"name": "Cardboard Boombox",
+	"icon": "rbxassetid://128639648014185",
+	"desc": "Increase <font color='#ffff00'>SIZE LUCK</font> by placing this near your eggs!",
+	"subdesc": "Up to <font color='#00ff00'>3X LUCK</font>\nLasts for <font color='#00ffff'>10 MINUTES</font>",
+	"modelPath": "ReplicatedStorage.Assets.Boomboxes.Boombox1",
+	"cost": 75000,
+	"perSecond": 0.02,
+	"radius": 9.0,
+	"duration": 600.0,
+	"maxBoost": 3.0,
+	"type": "Size",
+	"order": 1,
+	"instant": false
+}

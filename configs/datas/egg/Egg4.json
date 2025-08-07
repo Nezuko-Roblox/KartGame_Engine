@@ -1,0 +1,44 @@
+{
+  "id": "Egg4",
+  "name": "Shard Egg",
+  "icon": "rbxassetid://126420784676693",
+  "luck": "20x",
+  "rollItems": [
+    {
+      "itemId": "Item4",
+      "probability": 70.0
+    },
+    {
+      "itemId": "Item5",
+      "probability": 50.0
+    },
+    {
+      "itemId": "Item6",
+      "probability": 30.0
+    },
+    {
+      "itemId": "Item7",
+      "probability": 20.0
+    },
+    {
+      "itemId": "Item8",
+      "probability": 15.0
+    },
+    {
+      "itemId": "Item9",
+      "probability": 10.0
+    },
+    {
+      "itemId": "Item10",
+      "probability": 0.1
+    },
+    {
+      "itemId": "Item11",
+      "probability": 0.01
+    }
+  ],
+  "modelPath": "ReplicatedStorage.Assets.Eggs.Egg4",
+  "hatchTime": 60.0,
+  "cost": 15000,
+  "order": 4
+}

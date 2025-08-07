@@ -1,0 +1,17 @@
+<module name="egg" comment="蛋类系统配置">
+    
+    <!-- 物品掉落概率配置 -->
+    <bean name="EggRollItem" comment="蛋掉落物品配置">
+        <var name="itemId" type="string" comment="物品ID"/>
+        <var name="probability" type="float" comment="掉落概率"/>
+    </bean>
+    
+    <!-- 蛋类基础配置 -->
+    <bean name="EggConfig" parent="resource.CostResourceConfig" comment="蛋类基础配置">
+        <var name="luck" type="string" comment="幸运倍数显示文本"/>
+        <var name="rollItems" type="list,EggRollItem" comment="掉落物品配置列表"/>
+        <var name="modelPath" type="string" comment="蛋的3D模型路径"/>
+        <var name="hatchTime" type="float" comment="孵化时间（秒）"/>
+    </bean>
+
+</module>

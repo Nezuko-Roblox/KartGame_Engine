@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tables>
+    <!-- 传送门配置表 -->
+    <table name="PortalConfigTable" input="../datas/portal" index="id" value="portal.PortalConfig" mode="map" comment="传送门配置表"/>
+</tables>

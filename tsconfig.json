@@ -9,10 +9,14 @@
 		"moduleDetection": "force",
 		"noLib": true,
 		"experimentalDecorators": true,
-		"baseUrl": "src",
+		"baseUrl": ".",
 		"rootDir": "src",
 		"module": "commonjs",
 		"moduleResolution": "Node",
+		"paths": {
+			"*": ["src/*"],
+			"config": ["config/*"]
+		},
 		"resolveJsonModule": true,
 		"typeRoots": ["node_modules/@rbxts", "node_modules/@flamework"],
 		"strict": true,

@@ -1,0 +1,20 @@
+<module name="item" comment="物品系统配置">
+    
+    <!-- 物品图标配置 -->
+    <bean name="ItemIcons" comment="物品图标配置">
+        <var name="Normal" type="string" comment="普通图标"/>
+        <var name="Golden" type="string" comment="金色图标"/>
+        <var name="Diamond" type="string" comment="钻石图标"/>
+    </bean>
+    
+    <!-- 物品基础配置 -->
+    <bean name="ItemConfig" parent="resource.ModelResourceConfig" comment="物品基础配置">
+        <var name="moneyBase" type="int" comment="基础金钱收益"/>
+        <var name="size" type="string" comment="物品尺寸类型"/>
+        <var name="icons" type="ItemIcons" comment="物品图标配置"/>
+        <var name="refreshTime" type="float" comment="刷新时间（秒）"/>
+        <var name="percent" type="float" comment="收益百分比"/>
+        <var name="belongsTo" type="string" comment="所属岛屿"/>
+    </bean>
+
+</module>

@@ -1,0 +1,89 @@
+{
+  "category": "BigGuys",
+  "sizes": [
+    {
+      "name": "Small",
+      "weight": 910,
+      "multRange": {
+        "min": 1.0,
+        "max": 1.2
+      },
+      "scaleRange": {
+        "min": 0.5,
+        "max": 0.6
+      }
+    },
+    {
+      "name": "Normal",
+      "weight": 150,
+      "multRange": {
+        "min": 1.0,
+        "max": 1.0
+      },
+      "scaleRange": {
+        "min": 0.6,
+        "max": 0.8
+      }
+    },
+    {
+      "name": "Medium",
+      "weight": 50,
+      "multRange": {
+        "min": 1.5,
+        "max": 1.8
+      },
+      "scaleRange": {
+        "min": 1.0,
+        "max": 1.15
+      }
+    },
+    {
+      "name": "Large",
+      "weight": 60,
+      "multRange": {
+        "min": 2.5,
+        "max": 5.0
+      },
+      "scaleRange": {
+        "min": 1.2,
+        "max": 1.4
+      }
+    },
+    {
+      "name": "Titanic",
+      "weight": 5,
+      "multRange": {
+        "min": 10.0,
+        "max": 15.0
+      },
+      "scaleRange": {
+        "min": 1.75,
+        "max": 2.0
+      }
+    },
+    {
+      "name": "TripleTitanic",
+      "weight": 1,
+      "multRange": {
+        "min": 35.0,
+        "max": 50.0
+      },
+      "scaleRange": {
+        "min": 2.5,
+        "max": 3.0
+      }
+    },
+    {
+      "name": "MEGA",
+      "weight": 0.05,
+      "multRange": {
+        "min": 150.0,
+        "max": 200.0
+      },
+      "scaleRange": {
+        "min": 3.5,
+        "max": 4.0
+      }
+    }
+  ]
+}

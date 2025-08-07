@@ -1,0 +1,13 @@
+{
+  "id": "Golden",
+  "name": "Golden Mutation",
+  "desc": "Make any brainrot or egg golden!",
+  "icon": "rbxassetid://138471604415294",
+  "highlightColor": {
+    "r": 1.0,
+    "g": 0.78,
+    "b": 0.0
+  },
+  "type": 2,
+  "order": 6
+}

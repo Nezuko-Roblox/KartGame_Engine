@@ -1,0 +1,16 @@
+{
+  "id": "Item5",
+  "name": "Boneca",
+  "moneyBase": 15,
+  "size": "Default",
+  "icons": {
+    "Normal": "rbxassetid://126696482542607",
+    "Golden": "rbxassetid://96512961087744",
+    "Diamond": "rbxassetid://88589314636038"
+  },
+  "refreshTime": 4.0,
+  "percent": 3.0,
+  "modelPath": "ReplicatedStorage.Assets.Placeables.Item5",
+  "order": 5,
+  "belongsTo": "Island1"
+}

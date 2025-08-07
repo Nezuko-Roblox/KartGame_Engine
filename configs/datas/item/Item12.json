@@ -1,0 +1,16 @@
+{
+  "id": "Item12",
+  "name": "Bombardino",
+  "moneyBase": 125,
+  "size": "BigGuys",
+  "icons": {
+    "Normal": "rbxassetid://126309452224056",
+    "Golden": "rbxassetid://116870562306886",
+    "Diamond": "rbxassetid://97866372475004"
+  },
+  "refreshTime": 15.0,
+  "percent": 3.0,
+  "modelPath": "ReplicatedStorage.Assets.Placeables.Item12",
+  "order": 12,
+  "belongsTo": "Island1"
+}

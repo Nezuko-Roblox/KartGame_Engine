@@ -1,0 +1,16 @@
+{
+  "id": "Item8",
+  "name": "Trippi Troppi",
+  "moneyBase": 40,
+  "size": "BigGuys",
+  "icons": {
+    "Normal": "rbxassetid://76462440784259",
+    "Golden": "rbxassetid://104202587128356",
+    "Diamond": "rbxassetid://78611603925242"
+  },
+  "refreshTime": 9.0,
+  "percent": 3.0,
+  "modelPath": "ReplicatedStorage.Assets.Placeables.Item8",
+  "order": 8,
+  "belongsTo": "Island1"
+}

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tables>
+    <!-- 教程配置表 -->
+    <table name="TutorialConfigTable" input="../datas/tutorial" index="id" value="tutorial.TutorialConfig" mode="map" comment="教程配置表"/>
+</tables>

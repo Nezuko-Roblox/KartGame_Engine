@@ -1,0 +1,22 @@
+<module name="bundle" comment="捆绑包系统配置">
+    
+    <!-- 捆绑包蛋配置项 -->
+    <bean name="BundleEggItem" comment="捆绑包蛋配置项">
+        <var name="amount" type="int" comment="数量"/>
+        <var name="eggId" type="string" comment="蛋ID"/>
+    </bean>
+    
+    <!-- 捆绑包蛋配置 -->
+    <bean name="BundleEggConfig" comment="捆绑包蛋配置">
+        <var name="eggType" type="string" comment="蛋类型"/>
+        <var name="eggs" type="list,BundleEggItem" comment="蛋配置列表"/>
+    </bean>
+    
+    <!-- 捆绑包基础配置 -->
+    <bean name="BundleConfig" comment="捆绑包基础配置">
+        <var name="id" type="string" comment="捆绑包ID"/>
+        <var name="eggs" type="list,BundleEggConfig" comment="蛋配置"/>
+        <var name="money" type="int" comment="金钱奖励"/>
+    </bean>
+
+</module>

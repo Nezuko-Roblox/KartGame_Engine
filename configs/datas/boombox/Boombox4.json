@@ -1,0 +1,13 @@
+{
+	"id": "Boombox4",
+	"name": "Bubble Gum Boombox",
+	"icon": "rbxassetid://90140760920534",
+	"modelPath": "ReplicatedStorage.Assets.Boomboxes.Boombox4",
+	"perSecond": 0.04,
+	"radius": 12.5,
+	"duration": 1800.0,
+	"maxBoost": 7.5,
+	"type": "Luck Size",
+	"order": 4,
+	"instant": false
+}

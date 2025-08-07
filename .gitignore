@@ -4,6 +4,9 @@
 *.tsbuildinfo
 flamework.build
 
+src/types/configs/
+configs_sample
+
 # Misc
 .DS_Store
 
@@ -17,3 +20,6 @@ sourcemap.json
 *.mjs
 
 .env
+
+examples
+configs/jsonConfigs

@@ -1,0 +1,45 @@
+{
+  "id": "Island1",
+  "name": "Starting Island",
+  "icon": "rbxassetid://71982185578131",
+  "type": "Basic",
+  "order": 1,
+  "SETTINGS": {
+    "GLOBAL_EVENTS": true,
+    "COLLECT": true,
+    "Conveyor": [
+      {
+        "Name": "Egg1",
+        "Weight": 500
+      },
+      {
+        "Name": "Egg2",
+        "Weight": 250
+      },
+      {
+        "Name": "Egg3",
+        "Weight": 125
+      },
+      {
+        "Name": "Egg4",
+        "Weight": 60
+      },
+      {
+        "Name": "Egg5",
+        "Weight": 40
+      },
+      {
+        "Name": "Egg6",
+        "Weight": 20
+      },
+      {
+        "Name": "Egg7",
+        "Weight": 4.5
+      },
+      {
+        "Name": "Egg8",
+        "Weight": 0.5
+      }
+    ]
+  }
+}

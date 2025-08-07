@@ -1,0 +1,16 @@
+{
+  "id": "Item2",
+  "name": "Capuchino",
+  "moneyBase": 3,
+  "size": "Default",
+  "icons": {
+    "Normal": "rbxassetid://88391155722486",
+    "Golden": "rbxassetid://78173969986014",
+    "Diamond": "rbxassetid://114578803331192"
+  },
+  "refreshTime": 1.0,
+  "percent": 1.0,
+  "modelPath": "ReplicatedStorage.Assets.Placeables.Item2",
+  "order": 2,
+  "belongsTo": "Island1"
+}

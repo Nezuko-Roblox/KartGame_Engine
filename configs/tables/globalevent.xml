@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tables>
+    <!-- 全局事件配置表 -->
+    <table name="GlobalEventsConfigTable" input="../datas/globalevent" index="id" value="globalevent.GlobalEventsConfig" mode="map" comment="全局事件配置表"/>
+</tables>

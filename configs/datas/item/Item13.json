@@ -1,0 +1,16 @@
+{
+  "id": "Item13",
+  "name": "Bombombini",
+  "moneyBase": 175,
+  "size": "BigGuys",
+  "icons": {
+    "Normal": "rbxassetid://86948376320655",
+    "Golden": "rbxassetid://100123355010253",
+    "Diamond": "rbxassetid://98368752466537"
+  },
+  "refreshTime": 16.0,
+  "percent": 3.0,
+  "modelPath": "ReplicatedStorage.Assets.Placeables.Item13",
+  "order": 13,
+  "belongsTo": "Island1"
+}

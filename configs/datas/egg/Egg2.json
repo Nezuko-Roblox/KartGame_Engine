@@ -1,0 +1,36 @@
+{
+  "id": "Egg2",
+  "name": "Rare Egg",
+  "icon": "rbxassetid://112951520879497",
+  "luck": "2x",
+  "rollItems": [
+    {
+      "itemId": "Item2",
+      "probability": 40.0
+    },
+    {
+      "itemId": "Item3",
+      "probability": 30.0
+    },
+    {
+      "itemId": "Item4",
+      "probability": 20.0
+    },
+    {
+      "itemId": "Item5",
+      "probability": 10.0
+    },
+    {
+      "itemId": "Item6",
+      "probability": 0.1
+    },
+    {
+      "itemId": "Item7",
+      "probability": 0.01
+    }
+  ],
+  "modelPath": "ReplicatedStorage.Assets.Eggs.Egg2",
+  "hatchTime": 10.0,
+  "cost": 500,
+  "order": 2
+}

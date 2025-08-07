@@ -1,0 +1,27 @@
+<module name="boombox" comment="音箱系统配置">
+    
+    <!-- 音箱类型枚举 -->
+    <enum name="BoomboxType" comment="音箱类型">
+        <var name="Diamond" value="0" comment="钻石"/>
+        <var name="Golden" value="1" comment="金色"/>
+        <var name="Luck" value="2" comment="幸运"/>
+        <var name="LuckSize" value="3" comment="幸运尺寸"/>
+        <var name="Size" value="4" comment="尺寸"/>
+        <var name="SizeLuck" value="5" comment="尺寸幸运"/>
+    </enum>
+    
+    <!-- 音箱基础配置 -->
+    <bean name="BoomboxConfig" parent="resource.ResourceConfig" comment="音箱基础配置">
+        <var name="desc" type="string?" comment="音箱描述"/>
+        <var name="subdesc" type="string?" comment="音箱副描述"/>
+        <var name="modelPath" type="string" comment="音箱3D模型路径"/>
+        <var name="cost" type="int?" comment="音箱成本"/>
+        <var name="perSecond" type="float?" comment="每秒增益"/>
+        <var name="radius" type="float" comment="作用范围半径"/>
+        <var name="duration" type="float?" comment="持续时间（秒）"/>
+        <var name="maxBoost" type="float?" comment="最大增益倍数"/>
+        <var name="type" type="string" comment="音箱类型"/>
+        <var name="instant" type="bool?" comment="是否立即生效"/>
+    </bean>
+
+</module>

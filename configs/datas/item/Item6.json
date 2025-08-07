@@ -1,0 +1,16 @@
+{
+  "id": "Item6",
+  "name": "Chimpanzini",
+  "moneyBase": 20,
+  "size": "Default",
+  "icons": {
+    "Normal": "rbxassetid://95089604883043",
+    "Golden": "rbxassetid://82630262115180",
+    "Diamond": "rbxassetid://104323138680887"
+  },
+  "refreshTime": 6.0,
+  "percent": 3.0,
+  "modelPath": "ReplicatedStorage.Assets.Placeables.Item6",
+  "order": 6,
+  "belongsTo": "Island1"
+}

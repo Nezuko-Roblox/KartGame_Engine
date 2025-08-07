@@ -1,5 +1,7 @@
 import style from "@isentinel/eslint-config";
 
+import prettier from "eslint-plugin-prettier";
+
 export default style(
 	{
 		perfectionist: {
@@ -13,10 +15,17 @@ export default style(
 				"onTick",
 			],
 		},
+		plugins: {
+			prettier,
+		},
 		pnpm: true,
 		react: true,
 		rules: {
+			"antfu/consistent-list-newline": "off",
+			"better-max-params/better-max-params": "off",
 			"jsdoc/informative-docs": "off",
+			"max-lines": "off",
+			"max-lines-per-function": "off",
 			"perfectionist/sort-objects": [
 				"error",
 				{
@@ -33,6 +42,8 @@ export default style(
 					type: "natural",
 				},
 			],
+			"react-hooks-extra/no-unnecessary-use-memo": "off",
+			"unicorn/no-keyword-prefix": "off",
 		},
 		type: "game",
 		typescript: {
@@ -47,5 +58,33 @@ export default style(
 		rules: {
 			"max-lines-per-function": "off",
 		},
+	},
+	{
+		ignores: [
+			// Markdown files
+			"**/*.md",
+			"docs/**/*.md",
+			"prompts/**/*.md",
+			"src/shared/configs/*.d.ts",
+
+			// Yaml files
+			"**/*.yaml",
+			"**/*.yml",
+
+			// Assets
+			"assets/**/*.*",
+			"asset/**/*.*",
+
+			// Build outputs
+			"dist/",
+			"build/",
+			"out/",
+
+			// Node modules
+			"node_modules/",
+
+			"src/types/configs/**/*",
+			"configs/**/*",
+		],
 	},
 );

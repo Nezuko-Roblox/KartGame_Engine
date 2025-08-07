@@ -1,0 +1,36 @@
+{
+  "id": "Egg1",
+  "name": "Basic Egg",
+  "icon": "rbxassetid://106408716253369",
+  "luck": "1x",
+  "rollItems": [
+    {
+      "itemId": "Item1",
+      "probability": 33.0
+    },
+    {
+      "itemId": "Item2",
+      "probability": 33.0
+    },
+    {
+      "itemId": "Item3",
+      "probability": 33.0
+    },
+    {
+      "itemId": "Item4",
+      "probability": 0.1
+    },
+    {
+      "itemId": "Item5",
+      "probability": 0.01
+    },
+    {
+      "itemId": "Item6",
+      "probability": 0.001
+    }
+  ],
+  "modelPath": "ReplicatedStorage.Assets.Eggs.Egg1",
+  "hatchTime": 5.0,
+  "cost": 100,
+  "order": 1
+}

@@ -1,0 +1,12 @@
+{
+	"id": "DiamondBoombox",
+	"name": "Diamond Boombox",
+	"icon": "rbxassetid://71888236463005",
+	"desc": "Instantly hatch a <font color='#00ffff'>DIAMOND</font> pet!",
+	"subdesc": "1 in 50,000 chance",
+	"modelPath": "ReplicatedStorage.Assets.Boomboxes.DiamondBoombox",
+	"radius": 12.5,
+	"type": "Diamond",
+	"order": 6,
+	"INSTANT": true
+}

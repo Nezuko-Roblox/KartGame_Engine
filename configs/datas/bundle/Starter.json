@@ -1,0 +1,28 @@
+{
+  "id": "Starter",
+  "eggs": [
+    {
+      "eggType": "Egg1",
+      "eggs": [
+        {
+          "amount": 1,
+          "eggId": "Golden"
+        },
+        {
+          "amount": 1,
+          "eggId": "Diamond"
+        }
+      ]
+    },
+    {
+      "eggType": "Egg2",
+      "eggs": [
+        {
+          "amount": 1,
+          "eggId": "Electric"
+        }
+      ]
+    }
+  ],
+  "money": 15000
+}

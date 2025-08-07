@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tables>
+    <!-- 锤子配置表 -->
+    <table name="HammerConfigTable" input="../datas/hammer" index="id" value="hammer.HammerConfig" mode="map" comment="锤子配置表"/>
+</tables>

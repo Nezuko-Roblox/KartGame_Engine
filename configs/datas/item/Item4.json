@@ -1,0 +1,16 @@
+{
+  "id": "Item4",
+  "name": "Ramar",
+  "moneyBase": 10,
+  "size": "Default",
+  "icons": {
+    "Normal": "rbxassetid://140595255276419",
+    "Golden": "rbxassetid://94535742002505",
+    "Diamond": "rbxassetid://94461362469199"
+  },
+  "refreshTime": 2.0,
+  "percent": 3.0,
+  "modelPath": "ReplicatedStorage.Assets.Placeables.Item4",
+  "order": 4,
+  "belongsTo": "Island1"
+}

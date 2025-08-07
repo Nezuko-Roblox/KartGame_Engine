@@ -1,0 +1,16 @@
+{
+  "id": "Item1",
+  "name": "Tung Tung",
+  "moneyBase": 1,
+  "size": "Default",
+  "icons": {
+    "Normal": "rbxassetid://74189907903501",
+    "Golden": "rbxassetid://91045928508596",
+    "Diamond": "rbxassetid://116877651073470"
+  },
+  "refreshTime": 1.5,
+  "percent": 1.0,
+  "modelPath": "ReplicatedStorage.Assets.Placeables.Item1",
+  "order": 1,
+  "belongsTo": "Island1"
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tables>
+    <!-- 变异配置表 -->
+    <table name="MutationConfigTable" input="../datas/mutation" index="id" value="mutation.MutationConfig" mode="map" comment="变异配置表"/>
+    
+    <!-- 变异权重配置表 -->
+    <table name="MutationWeightConfigTable" input="../datas/mutation_weight" index="name" value="mutation.MutationWeightConfig" mode="map" comment="变异权重配置表"/>
+</tables>

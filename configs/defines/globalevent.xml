@@ -1,0 +1,34 @@
+<module name="globalevent" comment="全局事件系统配置">
+    
+    <!-- 事件权重配置 -->
+    <bean name="EventWeightConfig" comment="事件权重配置">
+        <var name="weight" type="int" comment="事件权重"/>
+    </bean>
+    
+    <!-- 事件详情配置 -->
+    <bean name="EventDetailsConfig" comment="事件详情配置">
+        <var name="id" type="string" comment="事件ID"/>
+        <var name="name" type="string" comment="事件名称"/>
+        <var name="desc" type="string" comment="事件描述"/>
+        <var name="delay" type="int?" comment="延迟时间（可选）"/>
+        <var name="weight" type="int" comment="事件权重"/>
+    </bean>
+    
+    <!-- 全局事件权重集合 -->
+    <bean name="GlobalEventWeights" comment="全局事件权重集合">
+        <var name="GoldRush" type="EventWeightConfig" comment="金币狂潮权重"/>
+        <var name="FireSale" type="EventWeightConfig" comment="火热销售权重"/>
+        <var name="LightningStorm" type="EventWeightConfig" comment="闪电风暴权重"/>
+        <var name="SolarFlare" type="EventWeightConfig" comment="太阳耀斑权重"/>
+        <var name="IceyStorm" type="EventWeightConfig" comment="冰霜风暴权重"/>
+        <var name="Glitch" type="EventWeightConfig" comment="故障事件权重"/>
+    </bean>
+    
+    <!-- 全局事件基础配置 -->
+    <bean name="GlobalEventsConfig" comment="全局事件基础配置">
+        <var name="id" type="string" comment="全局事件配置ID"/>
+        <var name="durations" type="list,int" comment="事件持续时间列表（秒）"/>
+        <var name="events" type="list,EventDetailsConfig" comment="事件详情列表"/>
+    </bean>
+
+</module>

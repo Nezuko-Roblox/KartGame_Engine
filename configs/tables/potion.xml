@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tables>
+    <!-- 药水配置表 -->
+    <table name="PotionConfigTable" input="../datas/potion" index="id" value="potion.PotionConfig" mode="map" comment="药水配置表"/>
+</tables>

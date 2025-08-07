@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tables>
+    <!-- 永久包配置表 -->
+    <table name="ForeverPackConfigTable" input="../datas/foreverpack" index="id" value="foreverpack.ForeverPackConfig" mode="map" comment="永久包配置表"/>
+</tables>
