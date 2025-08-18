@@ -1,0 +1,32 @@
+{
+    "name": "Kart_Roblox",
+    "servePort": 34882,
+    "tree": {
+      "$className": "DataModel",
+      
+      "ReplicatedStorage": {
+        "$className": "ReplicatedStorage",
+        
+        "KartEngine": {
+          "$path": "src/core"
+        },
+        "Tests": {
+            "$path": "src/tests"
+        }
+      },
+      
+      "ServerScriptService": {
+        "$className": "ServerScriptService",
+        "$path": "src/dev/ServerScriptService"
+      },
+      
+      "StarterPlayer": {
+        "$className": "StarterPlayer",
+        
+        "StarterPlayerScripts": {
+          "$className": "StarterPlayerScripts",
+          "$path": "src/dev/StarterPlayerScripts"
+        }
+      }
+    }
+  }

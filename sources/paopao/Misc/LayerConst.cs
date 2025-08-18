@@ -1,0 +1,16 @@
+﻿using System;
+
+public enum LayerConst
+{
+	TRACK = 256,
+	GUI = 512,
+	CHARACTER = 1024,
+	MINIMAP = 2048,
+	RESPAWN = 4096,
+	PLAYER = 8192,
+	AI = 16384,
+	AI_RESPAWN = 32768,
+	AI_SECTION = 65536,
+	BOOSTER_ENHANCER = 4194304,
+	WALL = 8388608
+}
