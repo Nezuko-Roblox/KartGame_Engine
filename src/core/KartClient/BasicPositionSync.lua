@@ -13,7 +13,8 @@ local SYNC_CONFIG = {
     SNAP_DISTANCE = 100,          -- 瞬移距离阈值
     SMOOTHING = 0.9,              -- 平滑系数（0-1，越大越平滑）
     MAX_SPEED_MULTIPLIER = 2,    -- 最大速度倍数（更平滑的加速）
-    ROTATION_SMOOTHING = 0.15,   -- 旋转平滑系数
+    ROTATION_SMOOTHING = 0.08,   -- 旋转平滑系数（降低以获得更平滑的旋转）
+    ROTATION_SPEED_MAX = 180,    -- 最大旋转速度（度/秒）
 }
 
 function BasicPositionSync.new(remotePlayer)
@@ -32,6 +33,9 @@ function BasicPositionSync.new(remotePlayer)
     
     -- 速度（用于平滑移动）
     self.velocity = Vector3.new(0, 0, 0)
+    
+    -- 旋转速度（用于平滑旋转）
+    self.rotationVelocity = 0  -- 当前旋转速度
     
     -- 初始化位置
     if self.kartModel and self.kartModel.PrimaryPart then
@@ -82,79 +86,93 @@ function BasicPositionSync:Update(deltaTime)
         return
     end
     
-    -- 影子追随算法
-    -- 1. 计算到影子的距离和方向
+    -- 统一的弹簧-阻尼系统（无阶段切换）
     local toShadow = self.shadowPosition - self.displayPosition
     local distance = toShadow.Magnitude
     
-    -- 2. 根据距离决定处理方式
+    -- 根据距离决定处理方式
     if distance > SYNC_CONFIG.SNAP_DISTANCE then
         -- 距离太远，直接瞬移
         self.displayPosition = self.shadowPosition
         self.displayRotation = self.shadowRotation
         self.velocity = Vector3.new(0, 0, 0)
+    else
+        -- 使用统一的弹簧-阻尼系统（避免阶段切换造成的卡顿）
         
-    elseif distance > SYNC_CONFIG.SHADOW_DISTANCE then
-        -- 超过影子距离，加速追赶
-        local direction = toShadow.Unit
+        -- 动态调整参数（基于距离）
+        local distanceFactor = math.min(distance / 10, 1)  -- 0到1的平滑过渡
         
-        -- 使用更平滑的速度曲线（平方根函数）
-        local distanceRatio = math.sqrt(distance / SYNC_CONFIG.SHADOW_DISTANCE)
-        local speed = SYNC_CONFIG.FOLLOW_SPEED * math.min(distanceRatio, SYNC_CONFIG.MAX_SPEED_MULTIPLIER)
+        -- 弹簧强度随距离增加（远处追得快，近处追得慢）
+        local springStrength = 8.0 + distanceFactor * 12.0  -- 8-20的范围
         
-        -- 计算目标速度
-        local targetVelocity = direction * speed
+        -- 阻尼系数（临界阻尼）
+        local criticalDamping = 2 * math.sqrt(springStrength)
+        local dampingRatio = 0.9  -- 稍微欠阻尼，更快响应
+        local damping = dampingRatio * criticalDamping
         
-        -- 平滑速度变化（避免突然加速/减速）
-        self.velocity = self.velocity * SYNC_CONFIG.SMOOTHING + targetVelocity * (1 - SYNC_CONFIG.SMOOTHING)
+        -- 计算力
+        local springForce = toShadow * springStrength
+        local dampingForce = -self.velocity * damping
         
-        -- 更新位置
-        local moveDistance = self.velocity.Magnitude * deltaTime
-        if moveDistance > distance then
-            -- 避免超过目标
-            self.displayPosition = self.shadowPosition
-        else
-            self.displayPosition = self.displayPosition + self.velocity * deltaTime
+        -- 计算加速度
+        local acceleration = springForce + dampingForce
+        
+        -- 更新速度（带速度限制）
+        self.velocity = self.velocity + acceleration * deltaTime
+        
+        -- 动态速度限制（距离越远，允许的速度越大）
+        local maxVelocity = 30 + distanceFactor * 70  -- 30-100的范围
+        if self.velocity.Magnitude > maxVelocity then
+            self.velocity = self.velocity.Unit * maxVelocity
         end
         
-    else
-        -- 在影子距离内，缓慢跟随
-        if distance > 0.1 then
-            -- 使用改进的弹簧阻尼效果
-            local springStrength = 3.0  -- 增强弹簧力以提高响应速度
-            local dampingFactor = 0.7   -- 增加阻尼以减少振荡
-            
-            local springForce = toShadow * springStrength
-            local dampingForce = -self.velocity * dampingFactor
-            
-            -- 更新速度
-            local acceleration = springForce + dampingForce
-            self.velocity = self.velocity + acceleration * deltaTime
-            
-            -- 限制最大速度
-            if self.velocity.Magnitude > SYNC_CONFIG.FOLLOW_SPEED then
-                self.velocity = self.velocity.Unit * SYNC_CONFIG.FOLLOW_SPEED
-            end
-            
-            -- 更新位置
-            self.displayPosition = self.displayPosition + self.velocity * deltaTime
-        else
-            -- 非常接近，逐渐停止
-            self.velocity = self.velocity * 0.95  -- 更快的减速
+        -- 更新位置
+        self.displayPosition = self.displayPosition + self.velocity * deltaTime
+        
+        -- 添加微小的阻尼，防止永远振荡
+        if distance < 0.5 then
+            self.velocity = self.velocity * 0.98
         end
     end
     
-    -- 3. 处理旋转（简单插值）
+    -- 3. 处理旋转（简单的弹簧-阻尼系统，无预测）
     local angleDiff = self.shadowRotation - self.displayRotation
-    -- 处理360度边界
+    
+    -- 处理360度边界（选择最短旋转路径）
     if angleDiff > 180 then
         angleDiff = angleDiff - 360
     elseif angleDiff < -180 then
         angleDiff = angleDiff + 360
     end
     
-    -- 平滑旋转（使用配置的平滑系数）
-    self.displayRotation = self.displayRotation + angleDiff * SYNC_CONFIG.ROTATION_SMOOTHING
+    -- 使用二阶系统（弹簧-阻尼模型）进行平滑
+    local springStrength = 12.0  -- 弹簧强度（响应速度）
+    local damping = 0.8          -- 阻尼系数（临界阻尼）
+    
+    -- 计算加速度
+    local springForce = angleDiff * springStrength
+    local dampingForce = -self.rotationVelocity * damping * 2 * math.sqrt(springStrength)
+    local rotationAcceleration = springForce + dampingForce
+    
+    -- 更新速度和位置
+    self.rotationVelocity = self.rotationVelocity + rotationAcceleration * deltaTime
+    
+    -- 限制最大旋转速度
+    local maxVelocity = 360  -- 度/秒
+    if math.abs(self.rotationVelocity) > maxVelocity then
+        self.rotationVelocity = self.rotationVelocity / math.abs(self.rotationVelocity) * maxVelocity
+    end
+    
+    -- 更新显示旋转
+    self.displayRotation = self.displayRotation + self.rotationVelocity * deltaTime
+    
+    -- 确保角度在 0-360 范围内
+    while self.displayRotation > 360 do
+        self.displayRotation = self.displayRotation - 360
+    end
+    while self.displayRotation < 0 do
+        self.displayRotation = self.displayRotation + 360
+    end
     
     -- 4. 应用到模型
     self.kartModel:SetPrimaryPartCFrame(
