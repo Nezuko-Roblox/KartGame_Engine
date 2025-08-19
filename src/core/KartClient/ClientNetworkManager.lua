@@ -10,10 +10,6 @@ local RunService = game:GetService("RunService")
 -- 获取 KartEngine
 local KartEngine = ReplicatedStorage:WaitForChild("KartEngine")
 
--- 引入模块（在需要时动态引入以避免未使用警告）
--- local OptimizedNetworkSync = require(script.Parent.OptimizedNetworkSync)
--- local TweenSync = require(script.Parent.TweenSync)  -- 备用同步方案
--- local PredictiveNetworkSync = require(script.Parent.PredictiveNetworkSync)  -- 高级预测方案
 
 local player = Players.LocalPlayer
 
@@ -38,10 +34,13 @@ function ClientNetworkManager.new()
     self.positionSendRate = 20         -- 位置发送频率(Hz) - 20Hz 高频率
     self.positionSendAccumulator = 0
     
+    -- 帧率统计
+    self.sendFrameCount = 0            -- 发送帧计数
+    self.recvFrameCount = 0            -- 接收帧计数
+    self.lastFrameReportTime = tick()  -- 上次报告时间
+    
     -- 初始化连接
     self:setupConnections()
-    
-    print("[ClientNetworkManager] 客户端网络管理器初始化完成 - 输入同步模式")
     
     return self
 end
@@ -89,8 +88,6 @@ end
 function ClientNetworkManager:setupLocalKart(kartModel, rigidbodyWalker)
     self.localKartModel = kartModel
     self.localRigidbodyWalker = rigidbodyWalker
-    
-    print("[ClientNetworkManager] 本地赛车设置完成 - 直接使用RigidbodyFPSWalker")
 end
 
 -- 不再发送输入，只同步位置
@@ -126,15 +123,20 @@ function ClientNetworkManager:sendLocalPosition(deltaTime)
         return
     end
     
-    self.positionSendAccumulator = self.positionSendAccumulator - sendInterval
+    -- 防止累积积压，直接重置而不是累减
+    self.positionSendAccumulator = 0
     
     -- 收集位置信息
+    local position = self.localKartModel.PrimaryPart and self.localKartModel.PrimaryPart.Position or Vector3.new(0, 0, 0)
     local positionData = {
-        position = self.localKartModel.PrimaryPart and self.localKartModel.PrimaryPart.Position or Vector3.new(0, 0, 0),
+        position = position,
         rotation = self.localKartModel.PrimaryPart and self.localKartModel.PrimaryPart.Orientation or Vector3.new(0, 0, 0),
         velocity = self.localRigidbodyWalker and self.localRigidbodyWalker.goPlayKart_ and 
                   self.localRigidbodyWalker.goPlayKart_.m_KartWLVel or Vector3.new(0, 0, 0)
     }
+    
+    -- 更新帧计数
+    self.sendFrameCount = self.sendFrameCount + 1
     
     -- 发送到服务器
     if self.remotes.PlayerPosition then
@@ -144,6 +146,7 @@ end
 
 -- 处理所有玩家的位置（位置校正）
 function ClientNetworkManager:processAllPlayersPosition(allPositions)
+    -- 正常处理所有位置更新
     for _, positionData in ipairs(allPositions) do
         if positionData.playerId ~= player.UserId then
             self:updateRemotePosition(positionData)
@@ -177,8 +180,6 @@ function ClientNetworkManager:onRemotePlayerJoin(playerData)
     if playerData.playerId == player.UserId then
         return -- 忽略自己
     end
-    
-    print("[ClientNetworkManager] 远程玩家加入:", playerData.playerName)
     
     -- 创建远程玩家的赛车模型
     self:createRemoteKart(playerData)
@@ -247,17 +248,11 @@ function ClientNetworkManager:createRemoteKart(playerData)
         kartModel = remoteKart
     }
     
-    -- 使用基础位置同步进行测试
+    -- 使用基础位置同步
     local BasicPositionSync = require(KartEngine.KartClient.BasicPositionSync)
     remotePlayerData.syncManager = BasicPositionSync.new(remotePlayerData)
     
-    -- 备选同步方案：
-    -- local OptimizedNetworkSync = require(script.Parent.OptimizedNetworkSync)
-    -- remotePlayerData.syncManager = OptimizedNetworkSync.new(remotePlayerData)
-    
     self.remotePlayers[playerData.playerId] = remotePlayerData
-    
-    print("[ClientNetworkManager] 远程赛车创建完成（仅位置同步），玩家:", playerData.playerName)
 end
 
 function ClientNetworkManager:onRemotePlayerLeave(userId)
@@ -267,7 +262,6 @@ function ClientNetworkManager:onRemotePlayerLeave(userId)
     
     local remotePlayer = self.remotePlayers[userId]
     if remotePlayer then
-        print("[ClientNetworkManager] 远程玩家离开:", remotePlayer.name, "释放索引:", remotePlayer.kartIndex)
         
         -- 清理KartManager中的赛车实例
         local KartManager = require(KartEngine.KartMove.KartManager)

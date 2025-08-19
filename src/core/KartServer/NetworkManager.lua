@@ -8,7 +8,7 @@ local Players = game:GetService("Players")
 
 -- 网络配置常量
 local NETWORK_CONFIG = {
-    SYNC_RATE = 30,              -- 状态同步频率(Hz) - 30Hz
+    SYNC_RATE = 20,              -- 状态同步频率(Hz) - 20Hz
     MAX_PLAYERS = 8,             -- 最大玩家数量
 }
 
@@ -67,8 +67,6 @@ function NetworkManager.new()
     -- 初始化连接
     self:setupConnections()
     
-    print("[NetworkManager] 简化服务器网络管理器初始化完成")
-    
     return self
 end
 
@@ -101,7 +99,6 @@ function NetworkManager:setupConnections()
 end
 
 function NetworkManager:onPlayerJoin(player)
-    print("[NetworkManager] 玩家加入:", player.Name)
     
     -- 添加到连接列表
     self.connectedPlayers[player] = {
@@ -138,7 +135,6 @@ function NetworkManager:onPlayerJoin(player)
                 playerId = existingInput.playerId,
                 playerName = existingInput.playerName
             })
-            print("[NetworkManager] 向新玩家", player.Name, "发送已存在玩家信息:", existingInput.playerName)
         end
     end
     
@@ -151,12 +147,9 @@ function NetworkManager:onPlayerJoin(player)
             })
         end
     end
-    
-    print("[NetworkManager] 玩家", player.Name, "输入已初始化，已同步所有玩家信息")
 end
 
 function NetworkManager:onPlayerLeave(player)
-    print("[NetworkManager] 玩家离开:", player.Name)
     
     local userId = player.UserId
     
@@ -196,7 +189,8 @@ function NetworkManager:networkSync(deltaTime)
         return
     end
     
-    self.syncAccumulator = self.syncAccumulator - syncInterval
+    -- 防止累积积压，直接重置
+    self.syncAccumulator = 0
     
     -- 收集所有玩家输入
     local allInputs = {}
@@ -218,9 +212,15 @@ function NetworkManager:updatePlayerPosition(player, positionData)
     end
     
     local userId = player.UserId
+    local position = positionData.position or Vector3.new(0, 0, 0)
+    
+    -- 调试输出：服务端接收到的位置（注释掉，太频繁）
+    -- print(string.format("[Server-Recv] 玩家:%s 位置:(%.2f, %.2f, %.2f)", 
+    --     player.Name, position.X, position.Y, position.Z))
+    
     self.playerPositions[userId] = {
         playerId = userId,
-        position = positionData.position or Vector3.new(0, 0, 0),
+        position = position,
         rotation = positionData.rotation or Vector3.new(0, 0, 0),
         velocity = positionData.velocity or Vector3.new(0, 0, 0),
         timestamp = tick()
@@ -238,7 +238,8 @@ function NetworkManager:positionSync(deltaTime)
         return
     end
     
-    self.positionSyncAccumulator = self.positionSyncAccumulator - syncInterval
+    -- 防止累积积压，直接重置
+    self.positionSyncAccumulator = 0
     
     -- 收集所有玩家位置
     local allPositions = {}
@@ -260,7 +261,5 @@ end
 
 -- 创建并启动网络管理器
 local networkManager = NetworkManager.new()
-
-print("[NetworkManager] 服务器启动完成 - 输入+位置混合同步模式")
 
 return networkManager

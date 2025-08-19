@@ -20,7 +20,7 @@ local success, err = pcall(function()
     ClientNetworkManagerClass = require(KartEngine.KartClient.ClientNetworkManager)
     networkEnabled = true
 end)
-
+print("版本： 0.1")
 if not success then
     warn("[KartInit] 网络模块未找到，使用单机模式:", err)
 end
