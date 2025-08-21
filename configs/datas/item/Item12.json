@@ -1,16 +1,22 @@
 {
   "id": "Item12",
-  "name": "Bombardino",
+  "name": "Akaza",
   "moneyBase": 125,
   "size": "BigGuys",
   "icons": {
-    "Normal": "rbxassetid://126309452224056",
-    "Golden": "rbxassetid://116870562306886",
-    "Diamond": "rbxassetid://97866372475004"
+    "Normal": "猗窝座",
+    "Golden": "猗窝座",
+    "Diamond": "猗窝座"
   },
   "refreshTime": 15.0,
   "percent": 3.0,
   "modelPath": "ReplicatedStorage.Assets.Placeables.Item12",
   "order": 12,
-  "belongsTo": "Island1"
+  "belongsTo": "Island1",
+  "roleId": 10,
+  "trophy": {
+    "size": 3.0,
+    "hatched": 10,
+    "earnings": 10000
+  }
 }

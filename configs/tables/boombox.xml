@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<tables>
-    <!-- 音箱配置表 -->
-    <table name="BoomboxConfigTable" input="../datas/boombox" index="id" value="boombox.BoomboxConfig" mode="map" comment="音箱配置表"/>
-</tables>

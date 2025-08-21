@@ -31,6 +31,9 @@
 			},
 			"configs": {
 				"$path": "configs"
+			},
+			"assets": {
+				"$path": "assets"
 			}
 		},
 		"StarterPlayer": {

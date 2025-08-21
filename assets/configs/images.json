@@ -1,0 +1,531 @@
+{
+  "common": {
+    "横条": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[0, 0]",
+      "ImageRectSize": "[1000, 111]"
+    },
+    "TITLE": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[0, 115]",
+      "ImageRectSize": "[509, 140]"
+    },
+    "内发光": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[513, 115]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "射线_四叶草": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[0, 259]",
+      "ImageRectSize": "[259, 253]"
+    },
+    "图鉴框": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[773, 115]",
+      "ImageRectSize": "[170, 170]"
+    },
+    "商品框": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[513, 375]",
+      "ImageRectSize": "[161, 161]"
+    },
+    "选择栏": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[263, 259]",
+      "ImageRectSize": "[118, 162]"
+    },
+    "物品底_大": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[0, 516]",
+      "ImageRectSize": "[135, 135]"
+    },
+    "按钮_橙色_正方形": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[773, 289]",
+      "ImageRectSize": "[110, 110]"
+    },
+    "按钮_蓝色_正方形": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[513, 540]",
+      "ImageRectSize": "[110, 110]"
+    },
+    "按钮_已装备": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[385, 259]",
+      "ImageRectSize": "[100, 100]"
+    },
+    "按钮_装备": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[263, 425]",
+      "ImageRectSize": "[100, 100]"
+    },
+    "按钮_装备选中": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[139, 516]",
+      "ImageRectSize": "[100, 100]"
+    },
+    "按钮_橙色": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[0, 655]",
+      "ImageRectSize": "[124, 80]"
+    },
+    "按钮_灰色": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[0, 739]",
+      "ImageRectSize": "[124, 80]"
+    },
+    "按钮_粉色": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[0, 823]",
+      "ImageRectSize": "[124, 80]"
+    },
+    "按钮_紫色": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[0, 907]",
+      "ImageRectSize": "[124, 80]"
+    },
+    "关闭": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[678, 375]",
+      "ImageRectSize": "[90, 90]"
+    },
+    "按钮_红色_正方形": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[773, 403]",
+      "ImageRectSize": "[90, 90]"
+    },
+    "设置，图鉴底": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[513, 654]",
+      "ImageRectSize": "[89, 89]"
+    },
+    "选中": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[385, 363]",
+      "ImageRectSize": "[84, 84]"
+    },
+    "通用组件底板": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[263, 529]",
+      "ImageRectSize": "[80, 80]"
+    },
+    "背包底": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[139, 620]",
+      "ImageRectSize": "[65, 65]"
+    },
+    "进度条": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[678, 469]",
+      "ImageRectSize": "[75, 34]"
+    },
+    "进度条底座": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[773, 497]",
+      "ImageRectSize": "[75, 34]"
+    },
+    "设置圆扭": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[947, 115]",
+      "ImageRectSize": "[29, 29]"
+    },
+    "设置进度条底": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[887, 289]",
+      "ImageRectSize": "[29, 16]"
+    },
+    "设置进度条": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[627, 540]",
+      "ImageRectSize": "[25, 12]"
+    },
+    "分割线": {
+      "Image": "rbxassetid://126765610682269",
+      "ImageRectOffset": "[1004, 0]",
+      "ImageRectSize": "[3, 28]"
+    },
+    "售卖底图_1": {
+      "Image": "rbxassetid://74009644716432",
+      "ImageRectOffset": "[0, 0]",
+      "ImageRectSize": "[1021, 301]"
+    },
+    "物品商店底": {
+      "Image": "rbxassetid://74009644716432",
+      "ImageRectOffset": "[0, 305]",
+      "ImageRectSize": "[1021, 274]"
+    },
+    "售卖底图_2": {
+      "Image": "rbxassetid://74009644716432",
+      "ImageRectOffset": "[0, 583]",
+      "ImageRectSize": "[1021, 247]"
+    },
+    "售卖单位底": {
+      "Image": "rbxassetid://74009644716432",
+      "ImageRectOffset": "[0, 834]",
+      "ImageRectSize": "[1021, 154]"
+    },
+    "设置分割线": {
+      "Image": "rbxassetid://74009644716432",
+      "ImageRectOffset": "[0, 992]",
+      "ImageRectSize": "[191, 6]"
+    },
+    "按钮_红色": {
+      "Image": "rbxassetid://101414978512177",
+      "ImageRectOffset": "[0, 0]",
+      "ImageRectSize": "[124, 80]"
+    },
+    "按钮_绿色": {
+      "Image": "rbxassetid://101414978512177",
+      "ImageRectOffset": "[128, 0]",
+      "ImageRectSize": "[124, 80]"
+    },
+    "按钮_蓝色": {
+      "Image": "rbxassetid://101414978512177",
+      "ImageRectOffset": "[0, 84]",
+      "ImageRectSize": "[124, 80]"
+    },
+    "圆条": {
+      "Image": "rbxassetid://101414978512177",
+      "ImageRectOffset": "[256, 0]",
+      "ImageRectSize": "[120, 67]"
+    },
+    "开关_关": {
+      "Image": "rbxassetid://101414978512177",
+      "ImageRectOffset": "[380, 0]",
+      "ImageRectSize": "[163, 48]"
+    },
+    "开关_底": {
+      "Image": "rbxassetid://101414978512177",
+      "ImageRectOffset": "[547, 0]",
+      "ImageRectSize": "[163, 48]"
+    },
+    "开关_开": {
+      "Image": "rbxassetid://101414978512177",
+      "ImageRectOffset": "[380, 52]",
+      "ImageRectSize": "[163, 48]"
+    }
+  },
+  "icon": {
+    "Egg1": {
+      "Image": "rbxassetid://125054762656911",
+      "ImageRectOffset": "[0, 0]",
+      "ImageRectSize": "[330, 330]"
+    },
+    "Egg2": {
+      "Image": "rbxassetid://125054762656911",
+      "ImageRectOffset": "[334, 0]",
+      "ImageRectSize": "[330, 330]"
+    },
+    "Egg3": {
+      "Image": "rbxassetid://125054762656911",
+      "ImageRectOffset": "[0, 334]",
+      "ImageRectSize": "[330, 330]"
+    },
+    "Egg4": {
+      "Image": "rbxassetid://125054762656911",
+      "ImageRectOffset": "[668, 0]",
+      "ImageRectSize": "[330, 330]"
+    },
+    "Egg5": {
+      "Image": "rbxassetid://125054762656911",
+      "ImageRectOffset": "[334, 334]",
+      "ImageRectSize": "[330, 330]"
+    },
+    "Egg6": {
+      "Image": "rbxassetid://125054762656911",
+      "ImageRectOffset": "[0, 668]",
+      "ImageRectSize": "[330, 330]"
+    },
+    "Egg7": {
+      "Image": "rbxassetid://125054762656911",
+      "ImageRectOffset": "[668, 334]",
+      "ImageRectSize": "[330, 330]"
+    },
+    "Egg8": {
+      "Image": "rbxassetid://125054762656911",
+      "ImageRectOffset": "[334, 668]",
+      "ImageRectSize": "[330, 330]"
+    },
+    "伊之助": {
+      "Image": "rbxassetid://125054762656911",
+      "ImageRectOffset": "[668, 668]",
+      "ImageRectSize": "[330, 330]"
+    },
+    "善逸": {
+      "Image": "rbxassetid://102158232891126",
+      "ImageRectOffset": "[0, 0]",
+      "ImageRectSize": "[330, 330]"
+    },
+    "富冈义勇": {
+      "Image": "rbxassetid://102158232891126",
+      "ImageRectOffset": "[334, 0]",
+      "ImageRectSize": "[330, 330]"
+    },
+    "左近次": {
+      "Image": "rbxassetid://102158232891126",
+      "ImageRectOffset": "[0, 334]",
+      "ImageRectSize": "[330, 330]"
+    },
+    "弥豆子": {
+      "Image": "rbxassetid://102158232891126",
+      "ImageRectOffset": "[668, 0]",
+      "ImageRectSize": "[330, 330]"
+    },
+    "村田": {
+      "Image": "rbxassetid://102158232891126",
+      "ImageRectOffset": "[334, 334]",
+      "ImageRectSize": "[330, 330]"
+    },
+    "炭治郎": {
+      "Image": "rbxassetid://102158232891126",
+      "ImageRectOffset": "[0, 668]",
+      "ImageRectSize": "[330, 330]"
+    },
+    "炼狱杏寿郎": {
+      "Image": "rbxassetid://102158232891126",
+      "ImageRectOffset": "[668, 334]",
+      "ImageRectSize": "[330, 330]"
+    },
+    "猗窝座": {
+      "Image": "rbxassetid://102158232891126",
+      "ImageRectOffset": "[334, 668]",
+      "ImageRectSize": "[330, 330]"
+    },
+    "矢琶羽": {
+      "Image": "rbxassetid://102158232891126",
+      "ImageRectOffset": "[668, 668]",
+      "ImageRectSize": "[330, 330]"
+    },
+    "累": {
+      "Image": "rbxassetid://72023631294249",
+      "ImageRectOffset": "[0, 0]",
+      "ImageRectSize": "[330, 330]"
+    },
+    "蝴蝶忍": {
+      "Image": "rbxassetid://72023631294249",
+      "ImageRectOffset": "[334, 0]",
+      "ImageRectSize": "[330, 330]"
+    },
+    "鬼化弥豆子": {
+      "Image": "rbxassetid://72023631294249",
+      "ImageRectOffset": "[0, 334]",
+      "ImageRectSize": "[330, 330]"
+    },
+    "Settings 1 1st Outline 256px": {
+      "Image": "rbxassetid://72023631294249",
+      "ImageRectOffset": "[668, 0]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "r币": {
+      "Image": "rbxassetid://72023631294249",
+      "ImageRectOffset": "[334, 334]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "五加木": {
+      "Image": "rbxassetid://72023631294249",
+      "ImageRectOffset": "[0, 668]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "四叶草带闪": {
+      "Image": "rbxassetid://72023631294249",
+      "ImageRectOffset": "[668, 260]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "图鉴": {
+      "Image": "rbxassetid://72023631294249",
+      "ImageRectOffset": "[334, 594]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "天气_水": {
+      "Image": "rbxassetid://72023631294249",
+      "ImageRectOffset": "[668, 520]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "变异_水": {
+      "Image": "rbxassetid://72023631294249",
+      "ImageRectOffset": "[334, 854]",
+      "ImageRectSize": "[135, 135]"
+    },
+    "变异_水_底": {
+      "Image": "rbxassetid://72023631294249",
+      "ImageRectOffset": "[668, 780]",
+      "ImageRectSize": "[135, 135]"
+    },
+    "沙漠未选中": {
+      "Image": "rbxassetid://72023631294249",
+      "ImageRectOffset": "[0, 928]",
+      "ImageRectSize": "[179, 47]"
+    },
+    "普通_变异": {
+      "Image": "rbxassetid://72023631294249",
+      "ImageRectOffset": "[928, 0]",
+      "ImageRectSize": "[84, 84]"
+    },
+    "钻石_变异": {
+      "Image": "rbxassetid://72023631294249",
+      "ImageRectOffset": "[473, 854]",
+      "ImageRectSize": "[84, 84]"
+    },
+    "黄金_变异": {
+      "Image": "rbxassetid://72023631294249",
+      "ImageRectOffset": "[807, 780]",
+      "ImageRectSize": "[84, 84]"
+    },
+    "天气_火": {
+      "Image": "rbxassetid://82523950498170",
+      "ImageRectOffset": "[0, 0]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "天气_限时促销": {
+      "Image": "rbxassetid://82523950498170",
+      "ImageRectOffset": "[260, 0]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "天气_雷": {
+      "Image": "rbxassetid://82523950498170",
+      "ImageRectOffset": "[0, 260]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "天气_风": {
+      "Image": "rbxassetid://82523950498170",
+      "ImageRectOffset": "[520, 0]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "天气_黄金": {
+      "Image": "rbxassetid://82523950498170",
+      "ImageRectOffset": "[260, 260]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "奖杯": {
+      "Image": "rbxassetid://82523950498170",
+      "ImageRectOffset": "[0, 520]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "奖杯未获得": {
+      "Image": "rbxassetid://82523950498170",
+      "ImageRectOffset": "[520, 260]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "好友加成": {
+      "Image": "rbxassetid://82523950498170",
+      "ImageRectOffset": "[260, 520]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "服务器运气": {
+      "Image": "rbxassetid://82523950498170",
+      "ImageRectOffset": "[520, 520]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "变异_火": {
+      "Image": "rbxassetid://82523950498170",
+      "ImageRectOffset": "[780, 0]",
+      "ImageRectSize": "[135, 135]"
+    },
+    "变异_火_底": {
+      "Image": "rbxassetid://82523950498170",
+      "ImageRectOffset": "[0, 780]",
+      "ImageRectSize": "[135, 135]"
+    },
+    "变异_钻石": {
+      "Image": "rbxassetid://82523950498170",
+      "ImageRectOffset": "[260, 780]",
+      "ImageRectSize": "[135, 135]"
+    },
+    "变异_钻石_底": {
+      "Image": "rbxassetid://82523950498170",
+      "ImageRectOffset": "[520, 780]",
+      "ImageRectSize": "[135, 135]"
+    },
+    "变异_雷": {
+      "Image": "rbxassetid://82523950498170",
+      "ImageRectOffset": "[780, 139]",
+      "ImageRectSize": "[135, 135]"
+    },
+    "变异_雷_底": {
+      "Image": "rbxassetid://82523950498170",
+      "ImageRectOffset": "[780, 278]",
+      "ImageRectSize": "[135, 135]"
+    },
+    "变异_风": {
+      "Image": "rbxassetid://82523950498170",
+      "ImageRectOffset": "[780, 417]",
+      "ImageRectSize": "[135, 135]"
+    },
+    "变异_风_底": {
+      "Image": "rbxassetid://82523950498170",
+      "ImageRectOffset": "[780, 556]",
+      "ImageRectSize": "[135, 135]"
+    },
+    "变异_黄金": {
+      "Image": "rbxassetid://82523950498170",
+      "ImageRectOffset": "[780, 695]",
+      "ImageRectSize": "[135, 135]"
+    },
+    "变异_黄金_底": {
+      "Image": "rbxassetid://82523950498170",
+      "ImageRectOffset": "[780, 834]",
+      "ImageRectSize": "[135, 135]"
+    },
+    "肌肉鼠": {
+      "Image": "rbxassetid://121904231561816",
+      "ImageRectOffset": "[0, 0]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "茶茶丸": {
+      "Image": "rbxassetid://121904231561816",
+      "ImageRectOffset": "[260, 0]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "货币": {
+      "Image": "rbxassetid://121904231561816",
+      "ImageRectOffset": "[0, 260]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "购物车": {
+      "Image": "rbxassetid://121904231561816",
+      "ImageRectOffset": "[520, 0]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "野猪": {
+      "Image": "rbxassetid://121904231561816",
+      "ImageRectOffset": "[260, 260]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "鎹鸦": {
+      "Image": "rbxassetid://121904231561816",
+      "ImageRectOffset": "[0, 520]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "钻石": {
+      "Image": "rbxassetid://121904231561816",
+      "ImageRectOffset": "[520, 260]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "锤子": {
+      "Image": "rbxassetid://121904231561816",
+      "ImageRectOffset": "[260, 520]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "镝丸": {
+      "Image": "rbxassetid://121904231561816",
+      "ImageRectOffset": "[520, 520]",
+      "ImageRectSize": "[256, 256]"
+    },
+    "沙漠选中": {
+      "Image": "rbxassetid://121904231561816",
+      "ImageRectOffset": "[780, 0]",
+      "ImageRectSize": "[179, 47]"
+    },
+    "绿地未选中": {
+      "Image": "rbxassetid://121904231561816",
+      "ImageRectOffset": "[0, 780]",
+      "ImageRectSize": "[179, 47]"
+    },
+    "绿地选中": {
+      "Image": "rbxassetid://121904231561816",
+      "ImageRectOffset": "[260, 780]",
+      "ImageRectSize": "[179, 47]"
+    }
+  }
+}

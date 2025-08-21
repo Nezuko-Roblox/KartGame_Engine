@@ -12,7 +12,7 @@ import { useButtonState, useRem } from "client/ui/hooks";
 import { useButtonAnimation } from "../hooks/use-button-animation";
 import { Button, type ButtonProps, Frame } from "./primitive";
 
-interface ReactiveButtonProps extends ButtonProps {
+export interface ReactiveButtonProps extends ButtonProps {
 	AnimatePosition?: boolean;
 	AnimatePositionDirection?: Vector2;
 	AnimatePositionStrength?: number;
@@ -35,6 +35,7 @@ export function ReactiveButton(props: ReactiveButtonProps): React.ReactNode {
 		CornerRadius,
 		Enabled = true,
 		Native,
+		onClick,
 		onHover,
 		onMouseDown,
 		onMouseEnter,
@@ -63,8 +64,15 @@ export function ReactiveButton(props: ReactiveButtonProps): React.ReactNode {
 	return (
 		<Button
 			Native={{
-				BackgroundTransparency: 1,
 				...Native,
+				BackgroundTransparency: 1,
+			}}
+			onClick={() => {
+				if (!Enabled) {
+					return;
+				}
+
+				onClick?.();
 			}}
 			onMouseDown={() => {
 				if (!Enabled) {

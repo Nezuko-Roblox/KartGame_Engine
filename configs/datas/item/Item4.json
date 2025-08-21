@@ -1,16 +1,22 @@
 {
   "id": "Item4",
-  "name": "Ramar",
+  "name": "Zenitsu",
   "moneyBase": 10,
   "size": "Default",
   "icons": {
-    "Normal": "rbxassetid://140595255276419",
-    "Golden": "rbxassetid://94535742002505",
-    "Diamond": "rbxassetid://94461362469199"
+    "Normal": "善逸",
+    "Golden": "善逸",
+    "Diamond": "善逸"
   },
   "refreshTime": 2.0,
   "percent": 3.0,
   "modelPath": "ReplicatedStorage.Assets.Placeables.Item4",
   "order": 4,
-  "belongsTo": "Island1"
+  "belongsTo": "Island1",
+  "roleId": 5,
+  "trophy": {
+    "size": 3.0,
+    "hatched": 10,
+    "earnings": 10000
+  }
 }

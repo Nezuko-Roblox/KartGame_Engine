@@ -1,16 +1,22 @@
 {
   "id": "Item6",
-  "name": "Chimpanzini",
+  "name": "Rui",
   "moneyBase": 20,
   "size": "Default",
   "icons": {
-    "Normal": "rbxassetid://95089604883043",
-    "Golden": "rbxassetid://82630262115180",
-    "Diamond": "rbxassetid://104323138680887"
+    "Normal": "累",
+    "Golden": "累",
+    "Diamond": "累"
   },
   "refreshTime": 6.0,
   "percent": 3.0,
   "modelPath": "ReplicatedStorage.Assets.Placeables.Item6",
   "order": 6,
-  "belongsTo": "Island1"
+  "belongsTo": "Island1",
+  "roleId": 4,
+  "trophy": {
+    "size": 3.0,
+    "hatched": 10,
+    "earnings": 10000
+  }
 }

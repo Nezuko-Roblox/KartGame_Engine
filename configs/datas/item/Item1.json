@@ -1,16 +1,22 @@
 {
   "id": "Item1",
-  "name": "Tung Tung",
+  "name": "Tanjiro",
   "moneyBase": 1,
   "size": "Default",
   "icons": {
-    "Normal": "rbxassetid://74189907903501",
-    "Golden": "rbxassetid://91045928508596",
-    "Diamond": "rbxassetid://116877651073470"
+    "Normal": "炭治郎",
+    "Golden": "炭治郎",
+    "Diamond": "炭治郎"
   },
   "refreshTime": 1.5,
   "percent": 1.0,
   "modelPath": "ReplicatedStorage.Assets.Placeables.Item1",
   "order": 1,
-  "belongsTo": "Island1"
+  "belongsTo": "Island1",
+  "roleId": 3,
+  "trophy": {
+    "size": 3.0,
+    "hatched": 10,
+    "earnings": 10000
+  }
 }

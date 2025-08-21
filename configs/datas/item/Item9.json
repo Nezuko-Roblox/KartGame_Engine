@@ -1,16 +1,22 @@
 {
   "id": "Item9",
-  "name": "Tralalero",
+  "name": "Kyojuro",
   "moneyBase": 50,
   "size": "BigGuys",
   "icons": {
-    "Normal": "rbxassetid://129928311534194",
-    "Golden": "rbxassetid://72019622578776",
-    "Diamond": "rbxassetid://96533019073610"
+    "Normal": "炼狱杏寿郎",
+    "Golden": "炼狱杏寿郎",
+    "Diamond": "炼狱杏寿郎"
   },
   "refreshTime": 8.0,
   "percent": 3.0,
   "modelPath": "ReplicatedStorage.Assets.Placeables.Item9",
   "order": 9,
-  "belongsTo": "Island1"
+  "belongsTo": "Island1",
+  "roleId": 9,
+  "trophy": {
+    "size": 3.0,
+    "hatched": 10,
+    "earnings": 10000
+  }
 }

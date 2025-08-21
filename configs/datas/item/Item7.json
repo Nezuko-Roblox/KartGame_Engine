@@ -1,16 +1,22 @@
 {
   "id": "Item7",
-  "name": "Udindindindin",
+  "name": "Murata",
   "moneyBase": 30,
   "size": "BigGuys",
   "icons": {
-    "Normal": "rbxassetid://132348015829134",
-    "Golden": "rbxassetid://124332359034079",
-    "Diamond": "rbxassetid://106739798260664"
+    "Normal": "村田",
+    "Golden": "村田",
+    "Diamond": "村田"
   },
   "refreshTime": 9.0,
   "percent": 3.0,
   "modelPath": "ReplicatedStorage.Assets.Placeables.Item7",
   "order": 7,
-  "belongsTo": "Island1"
+  "belongsTo": "Island1",
+  "roleId": 31,
+  "trophy": {
+    "size": 3.0,
+    "hatched": 10,
+    "earnings": 10000
+  }
 }

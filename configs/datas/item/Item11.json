@@ -1,16 +1,22 @@
 {
   "id": "Item11",
-  "name": "Brr Patapim",
+  "name": "Giyu",
   "moneyBase": 90,
   "size": "BigGuys",
   "icons": {
-    "Normal": "rbxassetid://116410214171138",
-    "Golden": "rbxassetid://84112874389061",
-    "Diamond": "rbxassetid://114167849075913"
+    "Normal": "富冈义勇",
+    "Golden": "富冈义勇",
+    "Diamond": "富冈义勇"
   },
   "refreshTime": 13.0,
   "percent": 3.0,
   "modelPath": "ReplicatedStorage.Assets.Placeables.Item11",
   "order": 11,
-  "belongsTo": "Island1"
+  "belongsTo": "Island1",
+  "roleId": 8,
+  "trophy": {
+    "size": 3.0,
+    "hatched": 10,
+    "earnings": 10000
+  }
 }

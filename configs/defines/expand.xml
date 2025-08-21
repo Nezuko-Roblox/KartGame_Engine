@@ -1,9 +1,0 @@
-<module name="expand" comment="扩展系统配置">
-    
-    <!-- 扩展区域配置 -->
-    <bean name="ExpandAreaConfig" comment="扩展区域配置">
-        <var name="id" type="string" comment="位置ID"/>
-        <var name="price" type="int" comment="扩展价格"/>
-    </bean>
-
-</module>

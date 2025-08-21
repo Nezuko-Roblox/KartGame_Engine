@@ -1,16 +1,22 @@
 {
   "id": "Item10",
-  "name": "Lirili Larila",
+  "name": "Shinobu",
   "moneyBase": 65,
   "size": "BigGuys",
   "icons": {
-    "Normal": "rbxassetid://125710667357253",
-    "Golden": "rbxassetid://75591347856708",
-    "Diamond": "rbxassetid://77626219904718"
+    "Normal": "蝴蝶忍",
+    "Golden": "蝴蝶忍",
+    "Diamond": "蝴蝶忍"
   },
   "refreshTime": 9.0,
   "percent": 3.0,
   "modelPath": "ReplicatedStorage.Assets.Placeables.Item10",
   "order": 10,
-  "belongsTo": "Island1"
+  "belongsTo": "Island1",
+  "roleId": 6,
+  "trophy": {
+    "size": 3.0,
+    "hatched": 10,
+    "earnings": 10000
+  }
 }

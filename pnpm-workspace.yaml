@@ -24,6 +24,7 @@ catalogs:
     roblox-ts: 3.0.0
     roblox-ts-luban: 0.4.1
     typescript: 5.5.3
+    roblox-asset-generator: 1.4.0
   prod:
     '@flamework/components': 1.2.3
     '@flamework/core': 1.2.3
@@ -52,6 +53,7 @@ catalogs:
     '@rbxts/t': 3.1.1
     '@rbxts/ui-labs': 2.3.0
     '@rbxts/validate-tree': 2.0.2
+    '@rbxts/zone-plus': ^3.2.0
     rbxts-transform-debug: 2.2.0
     rbxts-transform-env: 3.0.0
 

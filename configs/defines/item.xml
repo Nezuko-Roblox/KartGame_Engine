@@ -6,6 +6,13 @@
         <var name="Golden" type="string" comment="金色图标"/>
         <var name="Diamond" type="string" comment="钻石图标"/>
     </bean>
+
+    <!-- 物品奖杯配置 -->
+    <bean name="ItemTrophies" comment="物品奖杯配置">
+        <var name="size" type="float" comment="普通奖杯"/>
+        <var name="hatched" type="int" comment="金色奖杯"/>
+        <var name="earnings" type="float" comment="钻石奖杯"/>
+    </bean>
     
     <!-- 物品基础配置 -->
     <bean name="ItemConfig" parent="resource.ModelResourceConfig" comment="物品基础配置">
@@ -15,6 +22,8 @@
         <var name="refreshTime" type="float" comment="刷新时间（秒）"/>
         <var name="percent" type="float" comment="收益百分比"/>
         <var name="belongsTo" type="string" comment="所属岛屿"/>
+        <var name="roleId" type="int" comment="角色ID"/>
+        <var name="trophy" type="ItemTrophies" comment="奖杯配置"/>
     </bean>
 
 </module>

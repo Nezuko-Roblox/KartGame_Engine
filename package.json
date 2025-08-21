@@ -30,7 +30,9 @@
 		"luban": "dotnet node_modules/roblox-ts-luban/src/Luban/bin/Release/net8.0/Luban.dll",
 		"prepare": "node .husky/install.js",
 		"prod:build": "npm run clean && NODE_ENV=production && npx rbxtsc --verbose && npm run darklua",
-		"prod:sync": "rojo serve ./build.project.json"
+		"prod:sync": "rojo serve ./build.project.json",
+		"upload:images": "image-asset assets/images assets/configs -j",
+		"upload:sounds": "sound-asset assets/sounds assets/configs -j"
 	},
 	"lint-staged": {
 		"*": "eslint --fix --max-warnings 0 --no-warn-ignored"
@@ -63,6 +65,7 @@
 		"@rbxts/t": "catalog:prod",
 		"@rbxts/ui-labs": "catalog:prod",
 		"@rbxts/validate-tree": "catalog:prod",
+		"@rbxts/zone-plus": "catalog:prod",
 		"rbxts-transform-debug": "catalog:prod",
 		"rbxts-transform-env": "catalog:prod"
 	},
@@ -88,6 +91,7 @@
 		"rbxts-build": "catalog:dev",
 		"rbxts-transformer-flamework": "catalog:dev",
 		"rimraf": "catalog:dev",
+		"roblox-asset-generator": "catalog:dev",
 		"roblox-ts": "catalog:dev",
 		"roblox-ts-luban": "catalog:dev",
 		"typescript": "catalog:dev"

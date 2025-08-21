@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<tables>
-    <!-- 捆绑包配置表 -->
-    <table name="BundleConfigTable" input="../datas/bundle" index="id" value="bundle.BundleConfig" mode="map" comment="捆绑包配置表"/>
-</tables>

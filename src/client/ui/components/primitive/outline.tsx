@@ -1,7 +1,7 @@
 import { blend, composeBindings } from "@rbxts/pretty-react-hooks";
 import React, { useMemo } from "@rbxts/react";
 
-import { palette } from "client/constants";
+import { palette } from "shared/constants/palette";
 
 import { useRem } from "../../hooks";
 import { type FrameProps, Group } from ".";

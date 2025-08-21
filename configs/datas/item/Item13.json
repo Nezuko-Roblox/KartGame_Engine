@@ -1,16 +1,22 @@
 {
   "id": "Item13",
-  "name": "Bombombini",
+  "name": "Nezuko[Demonic]",
   "moneyBase": 175,
   "size": "BigGuys",
   "icons": {
-    "Normal": "rbxassetid://86948376320655",
-    "Golden": "rbxassetid://100123355010253",
-    "Diamond": "rbxassetid://98368752466537"
+    "Normal": "鬼化弥豆子",
+    "Golden": "鬼化弥豆子",
+    "Diamond": "鬼化弥豆子"
   },
   "refreshTime": 16.0,
   "percent": 3.0,
   "modelPath": "ReplicatedStorage.Assets.Placeables.Item13",
   "order": 13,
-  "belongsTo": "Island1"
+  "belongsTo": "Island1",
+  "roleId": 30,
+  "trophy": {
+    "size": 3.0,
+    "hatched": 10,
+    "earnings": 10000
+  }
 }

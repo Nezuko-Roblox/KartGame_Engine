@@ -1,16 +1,22 @@
 {
   "id": "Item8",
-  "name": "Trippi Troppi",
+  "name": "Sakonji",
   "moneyBase": 40,
   "size": "BigGuys",
   "icons": {
-    "Normal": "rbxassetid://76462440784259",
-    "Golden": "rbxassetid://104202587128356",
-    "Diamond": "rbxassetid://78611603925242"
+    "Normal": "左近次",
+    "Golden": "左近次",
+    "Diamond": "左近次"
   },
   "refreshTime": 9.0,
   "percent": 3.0,
   "modelPath": "ReplicatedStorage.Assets.Placeables.Item8",
   "order": 8,
-  "belongsTo": "Island1"
+  "belongsTo": "Island1",
+  "roleId": 15,
+  "trophy": {
+    "size": 3.0,
+    "hatched": 10,
+    "earnings": 10000
+  }
 }

@@ -15,6 +15,7 @@
 		"moduleResolution": "Node",
 		"paths": {
 			"*": ["src/*"],
+			"assets/configs/*": ["assets/configs/*"],
 			"config": ["config/*"]
 		},
 		"resolveJsonModule": true,

@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<tables>
-    <!-- 蛋类配置表 -->
-    <table name="EggConfigTable" input="../datas/egg" index="id" value="egg.EggConfig" mode="map" comment="蛋类配置表"/>
-</tables>

@@ -1,16 +1,22 @@
 {
   "id": "Item3",
-  "name": "Garam",
+  "name": "Yahaba",
   "moneyBase": 5,
   "size": "Default",
   "icons": {
-    "Normal": "rbxassetid://108310922539712",
-    "Golden": "rbxassetid://93666685661609",
-    "Diamond": "rbxassetid://140625269767871"
+    "Normal": "矢琶羽",
+    "Golden": "矢琶羽",
+    "Diamond": "矢琶羽"
   },
   "refreshTime": 2.0,
   "percent": 2.0,
   "modelPath": "ReplicatedStorage.Assets.Placeables.Item3",
   "order": 3,
-  "belongsTo": "Island1"
+  "belongsTo": "Island1",
+  "roleId": 12,
+  "trophy": {
+    "size": 3.0,
+    "hatched": 10,
+    "earnings": 10000
+  }
 }

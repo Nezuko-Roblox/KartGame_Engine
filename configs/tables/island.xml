@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<tables>
-    <!-- 岛屿配置表 -->
-    <table name="IslandConfigTable" input="../datas/island" index="id" value="island.IslandConfig" mode="map" comment="岛屿配置表"/>
-</tables>

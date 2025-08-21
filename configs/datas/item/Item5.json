@@ -1,16 +1,22 @@
 {
   "id": "Item5",
-  "name": "Boneca",
+  "name": "Inosuke",
   "moneyBase": 15,
   "size": "Default",
   "icons": {
-    "Normal": "rbxassetid://126696482542607",
-    "Golden": "rbxassetid://96512961087744",
-    "Diamond": "rbxassetid://88589314636038"
+    "Normal": "伊之助",
+    "Golden": "伊之助",
+    "Diamond": "伊之助"
   },
   "refreshTime": 4.0,
   "percent": 3.0,
   "modelPath": "ReplicatedStorage.Assets.Placeables.Item5",
   "order": 5,
-  "belongsTo": "Island1"
+  "belongsTo": "Island1",
+  "roleId": 2,
+  "trophy": {
+    "size": 3.0,
+    "hatched": 10,
+    "earnings": 10000
+  }
 }

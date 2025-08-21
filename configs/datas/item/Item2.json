@@ -1,16 +1,22 @@
 {
   "id": "Item2",
-  "name": "Capuchino",
+  "name": "Nezuko",
   "moneyBase": 3,
   "size": "Default",
   "icons": {
-    "Normal": "rbxassetid://88391155722486",
-    "Golden": "rbxassetid://78173969986014",
-    "Diamond": "rbxassetid://114578803331192"
+    "Normal": "弥豆子",
+    "Golden": "弥豆子",
+    "Diamond": "弥豆子"
   },
   "refreshTime": 1.0,
   "percent": 1.0,
   "modelPath": "ReplicatedStorage.Assets.Placeables.Item2",
   "order": 2,
-  "belongsTo": "Island1"
+  "belongsTo": "Island1",
+  "roleId": 1,
+  "trophy": {
+    "size": 3.0,
+    "hatched": 10,
+    "earnings": 10000
+  }
 }

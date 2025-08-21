@@ -4,8 +4,8 @@ import React from "@rbxts/react";
 import { useRem } from "../hooks";
 import { type ButtonProps, Frame, ImageLabel } from "./primitive";
 import { Outline } from "./primitive/outline";
-import { Shadow } from "./primitive/shadow";
 import { ReactiveButton } from "./reactive-button";
+import { Shadow } from "./shadow";
 
 interface PrimaryButtonProps extends ButtonProps {
 	readonly OverlayGradient?: ColorSequence | React.Binding<ColorSequence>;
