@@ -53,9 +53,11 @@ export class CharacterService implements OnStart, OnPlayerJoin {
 
 		janitor.Add(
 			onCharacterAdded(player, character => {
-				janitor.AddPromise(this.characterAdded(playerEntity, character)).catch(err => {
-					this.logger.Fatal(`Could not get character rig because:\n${err}`);
-				});
+				janitor
+					.AddPromise(this.characterAdded(playerEntity, character) as Promise<unknown>)
+					.catch(err => {
+						this.logger.Fatal(`Could not get character rig because:\n${err}`);
+					});
 			}),
 		);
 	}
@@ -165,11 +167,13 @@ export class CharacterService implements OnStart, OnPlayerJoin {
 
 		debug.profileend();
 
-		janitor.AddPromise(this.characterAppearanceLoaded(player, rig)).catch(err => {
-			this.logger.Info(
-				`Character appearance did not load for ${userId}, with reason: ${err}`,
-			);
-		});
+		janitor
+			.AddPromise(this.characterAppearanceLoaded(player, rig) as Promise<unknown>)
+			.catch(err => {
+				this.logger.Info(
+					`Character appearance did not load for ${userId}, with reason: ${err}`,
+				);
+			});
 	}
 
 	private async characterAppearanceLoaded(player: Player, rig: CharacterRig): Promise<void> {

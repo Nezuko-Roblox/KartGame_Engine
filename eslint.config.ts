@@ -21,6 +21,7 @@ export default style(
 		pnpm: true,
 		react: true,
 		rules: {
+			"@cspell/spellchecker": "off",
 			"antfu/consistent-list-newline": "off",
 			"better-max-params/better-max-params": "off",
 			"jsdoc/informative-docs": "off",
@@ -43,6 +44,7 @@ export default style(
 				},
 			],
 			"react-hooks-extra/no-unnecessary-use-memo": "off",
+			"ts/no-empty-object-type": "off",
 			"unicorn/no-keyword-prefix": "off",
 		},
 		type: "game",
@@ -86,5 +88,20 @@ export default style(
 			"src/types/configs/**/*",
 			"configs/**/*",
 		],
+	},
+	{
+		files: ["**/ecs/**/*"],
+		rules: {
+			"max-depth": "off",
+			"react-hooks-roblox/rules-of-hooks": "off",
+			"ts/no-floating-promises": "off",
+		},
+	},
+	{
+		files: ["**/ecs/systems/**/*"],
+		rules: {
+			"sonar/cognitive-complexity": "off",
+			"ts/explicit-function-return-type": "off",
+		},
 	},
 );

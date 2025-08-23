@@ -6,6 +6,10 @@ interface ReplicatedStorage {
 	"TS": Folder & {
 		assets: ModuleScript;
 		constants: ModuleScript;
+		ecs: Folder & {
+			commands: Folder;
+			systems: Folder;
+		};
 		functions: Folder & {
 			"game-config": ModuleScript;
 			"setup-logger": ModuleScript;

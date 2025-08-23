@@ -91,6 +91,9 @@ catalogs:
     '@flamework/networking':
       specifier: 1.2.3
       version: 1.2.3
+    '@rbxts/cmdr':
+      specifier: 1.12.1
+      version: 1.12.1
     '@rbxts/flamework-binary-serializer':
       specifier: 0.6.0
       version: 0.6.0
@@ -109,15 +112,30 @@ catalogs:
     '@rbxts/luau-polyfill':
       specifier: 1.1.2
       version: 1.1.2
+    '@rbxts/matter':
+      specifier: 0.8.5
+      version: 0.8.5
+    '@rbxts/matter-hooks':
+      specifier: 0.1.2
+      version: 0.1.2
     '@rbxts/message-templates':
       specifier: 0.3.2
       version: 0.3.2
+    '@rbxts/object-utils':
+      specifier: 1.0.4
+      version: 1.0.4
+    '@rbxts/plasma':
+      specifier: 0.4.5
+      version: 0.4.5
     '@rbxts/player-module-types':
       specifier: 0.1.0
       version: 0.1.0
     '@rbxts/pretty-react-hooks':
       specifier: 0.6.1
       version: 0.6.1
+    '@rbxts/promise-character':
+      specifier: 1.0.3
+      version: 1.0.3
     '@rbxts/promise-child':
       specifier: 1.2.1
       version: 1.2.1
@@ -145,6 +163,9 @@ catalogs:
     '@rbxts/remo':
       specifier: 1.5.2
       version: 1.5.2
+    '@rbxts/rewire':
+      specifier: 0.3.0
+      version: 0.3.0
     '@rbxts/ripple':
       specifier: 0.9.1
       version: 0.9.1
@@ -163,6 +184,9 @@ catalogs:
     '@rbxts/validate-tree':
       specifier: 2.0.2
       version: 2.0.2
+    '@rbxts/visualize':
+      specifier: 1.1.1
+      version: 1.1.1
     '@rbxts/zone-plus':
       specifier: ^3.2.0
       version: 3.2.0
@@ -194,6 +218,9 @@ importers:
       '@flamework/networking':
         specifier: catalog:prod
         version: 1.2.3(@flamework/core@1.2.3)
+      '@rbxts/cmdr':
+        specifier: catalog:prod
+        version: 1.12.1
       '@rbxts/flamework-binary-serializer':
         specifier: catalog:prod
         version: 0.6.0(@flamework/core@1.2.3)(rbxts-transformer-flamework@1.2.3(typescript@5.5.3))
@@ -212,15 +239,30 @@ importers:
       '@rbxts/luau-polyfill':
         specifier: catalog:prod
         version: 1.1.2
+      '@rbxts/matter':
+        specifier: catalog:prod
+        version: 0.8.5
+      '@rbxts/matter-hooks':
+        specifier: catalog:prod
+        version: 0.1.2
       '@rbxts/message-templates':
         specifier: catalog:prod
         version: 0.3.2
+      '@rbxts/object-utils':
+        specifier: catalog:prod
+        version: 1.0.4
+      '@rbxts/plasma':
+        specifier: catalog:prod
+        version: 0.4.5
       '@rbxts/player-module-types':
         specifier: catalog:prod
         version: 0.1.0
       '@rbxts/pretty-react-hooks':
         specifier: catalog:prod
         version: 0.6.1
+      '@rbxts/promise-character':
+        specifier: catalog:prod
+        version: 1.0.3
       '@rbxts/promise-child':
         specifier: catalog:prod
         version: 1.2.1
@@ -248,6 +290,9 @@ importers:
       '@rbxts/remo':
         specifier: catalog:prod
         version: 1.5.2
+      '@rbxts/rewire':
+        specifier: catalog:prod
+        version: 0.3.0
       '@rbxts/ripple':
         specifier: catalog:prod
         version: 0.9.1
@@ -266,6 +311,9 @@ importers:
       '@rbxts/validate-tree':
         specifier: catalog:prod
         version: 2.0.2
+      '@rbxts/visualize':
+        specifier: catalog:prod
+        version: 1.1.1
       '@rbxts/zone-plus':
         specifier: catalog:prod
         version: 3.2.0
@@ -1184,6 +1232,12 @@ packages:
     resolution: {integrity: sha512-QNqXyfVS2wm9hweSYD2O7F0G06uurj9kZ96TRQE5Y9hU7+tgdZwIkbAKc5Ocy1HxEY2kuDQa6cQ1WRs/O5LFKA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
+  '@rbxts/cmdr@1.12.1':
+    resolution: {integrity: sha512-1I/Wnz4hY5fv6Eup7RZ2xGwog4X28dk5zUKYGc/Uo0ENfhwg344c2yf8Sn4CkimLOE2jpLYHq0p8IJ1i1AQg6g==}
+
+  '@rbxts/compiler-types@1.2.3-types.1':
+    resolution: {integrity: sha512-SXXIBazyJ7N6d2xcy471/kqZZpCv7EDOWrRJ45jcv3g00VQaZwYl4Elr10woqRloIblQanwJ7yUqGXAsWv7iuQ==}
+
   '@rbxts/compiler-types@3.0.0-types.0':
     resolution: {integrity: sha512-VGOHJPoL7+56NTatMGqQj3K7xWuzEV+aP4QD5vZiHu+bcff3kiTmtoadaF6NkJrmwfFAvbsd4Dg764ZjWNceag==}
 
@@ -1216,17 +1270,29 @@ packages:
   '@rbxts/maid@1.1.0':
     resolution: {integrity: sha512-bVWXZ0p2M3OJzPzvN5fY0T4s37ezUMY7EX31Xspp7Ds4C/K9yE4MHMRXjtlNvsYVPmoc5tdhAbpZY02Veix5lg==}
 
+  '@rbxts/matter-hooks@0.1.2':
+    resolution: {integrity: sha512-0vUqK1F9p20nkESIrSKL24ZNLSilsLxLx8HRNN2Ld1OfFxTOedBcLKULF+3LsF+0tXcAZGlGQDnbuONT+AU0ig==}
+
+  '@rbxts/matter@0.8.5':
+    resolution: {integrity: sha512-xQ+ggK6w1fEHeVD1W3KAojHSZrO+H3eua344fTMo87WyeZ+Y5sDxLadOQHBtNR4dLh7kMS0HJ7MPRiFktjkPAA==}
+
   '@rbxts/message-templates@0.3.2':
     resolution: {integrity: sha512-79onYskH3pgrBT73Zs+biQ31vAVvupKQaxGNWGjyGsxwNhO2YaN/qkut0bvOshaGa+ZzqAXApRVrN8ifIMPiMQ==}
 
   '@rbxts/object-utils@1.0.4':
     resolution: {integrity: sha512-dLLhf022ipV+9i910sOE7kl9losKHoon0WgeerHqVMQA5EYsLUsVT2AxhJuhk8MiDn5oJ2GiFofE/LadY9TpJQ==}
 
+  '@rbxts/plasma@0.4.5':
+    resolution: {integrity: sha512-VtbrO/ZRxnRNDadFth/Y0+3NNxJlYTMhS1qWnbRht4NrAOK0hrk0iwGZJz+aOfKSQ2h/Rbh9DLW3SKy124XqaA==}
+
   '@rbxts/player-module-types@0.1.0':
     resolution: {integrity: sha512-i+y6bFmyEA+UOClbd6e+yYRSkzpqN8O1D1t9+jsfyPOTi95AUWfOMoCCDu0kM70sQZNJht3odbA+cIZgXcY5RA==}
 
   '@rbxts/pretty-react-hooks@0.6.1':
     resolution: {integrity: sha512-dnHS1z2Emq2ZC1dqKtcYmuhu04xkFgN25J/rnWYL4UnX9LuGXGrG4qF3kBlNRyTQXjGf+pXVlX6mLQmwfsSxOQ==}
+
+  '@rbxts/promise-character@1.0.3':
+    resolution: {integrity: sha512-2OaN4JIoCfRetBcgEFCwlj1lmipLoyj9zCrp+kDSEjD66+vNY+3XUd9XYXlJIue4/yhc9ObHuYIdvegROTmjHg==}
 
   '@rbxts/promise-child@1.2.1':
     resolution: {integrity: sha512-z1Qiim2l59fM2MSi3oi7mQyyxg74YjlSeSrDzBAb9Kd7SLe+bm2V00LOexuUtydZlxxzkrozzaCOlLPwoXwcaQ==}
@@ -1261,6 +1327,9 @@ packages:
   '@rbxts/remo@1.5.2':
     resolution: {integrity: sha512-UQSlJgLcLg1+ocXvg30TfdbuvrS4Qc3yzoxLltc+OP71fF6PmaUg/b6EQlXIt/uBCTOszDHJ7I3nlyG+pTLFjQ==}
 
+  '@rbxts/rewire@0.3.0':
+    resolution: {integrity: sha512-wChhGZ3kEkEsMK9ZuwKpwRsC7OGVZlvxrYMR3beFgCIPXE58JKLziBLkDACmd709XCCEmsMAqv9HMCMhSTD08Q==}
+
   '@rbxts/ripple@0.9.1':
     resolution: {integrity: sha512-gLjKYy+mJO67NoN/9d7/8kBy6+SNG1/09GNNnh89DYWT5iHYdxC0/XKbKrKZpx7Fcsz5iY9Sl6vOvSnFwFbQuw==}
 
@@ -1290,6 +1359,9 @@ packages:
 
   '@rbxts/validate-tree@2.0.2':
     resolution: {integrity: sha512-OA0E9ZjEeOpPa3XeV5/oC51aro2QFcL5dItufbagYZW8TOsX8C+FDXLx+A/ulMwcF42WcFNcQybxzcWSS/QSrA==}
+
+  '@rbxts/visualize@1.1.1':
+    resolution: {integrity: sha512-3JYpHFP3eAnyzzhU4VEGrExAlwivQvARGx6PAbnL44FVXj/iD8X4RG1Rq3eOpIrrglvTlwYh1qjRDfI4DjpGMA==}
 
   '@rbxts/zone-plus@3.2.0':
     resolution: {integrity: sha512-myxs7QXMVCCPhOpUzaoA/01ZCEG/6TBYRNk6LwksUvSp9bONnIpvEZYEazuWnIDwiOEIw/T9kCPY/7FGjMOvsA==}
@@ -5748,6 +5820,10 @@ snapshots:
 
   '@pkgr/core@0.2.9': {}
 
+  '@rbxts/cmdr@1.12.1': {}
+
+  '@rbxts/compiler-types@1.2.3-types.1': {}
+
   '@rbxts/compiler-types@3.0.0-types.0': {}
 
   '@rbxts/flamework-binary-serializer@0.6.0(@flamework/core@1.2.3)(rbxts-transformer-flamework@1.2.3(typescript@5.5.3))':
@@ -5773,9 +5849,17 @@ snapshots:
 
   '@rbxts/maid@1.1.0': {}
 
+  '@rbxts/matter-hooks@0.1.2':
+    dependencies:
+      '@rbxts/matter': 0.8.5
+
+  '@rbxts/matter@0.8.5': {}
+
   '@rbxts/message-templates@0.3.2': {}
 
   '@rbxts/object-utils@1.0.4': {}
+
+  '@rbxts/plasma@0.4.5': {}
 
   '@rbxts/player-module-types@0.1.0': {}
 
@@ -5786,6 +5870,12 @@ snapshots:
       '@rbxts/ripple': 0.9.1
       '@rbxts/services': 1.5.5
       '@rbxts/set-timeout': 1.1.2
+
+  '@rbxts/promise-character@1.0.3':
+    dependencies:
+      '@rbxts/compiler-types': 1.2.3-types.1
+      '@rbxts/types': 1.0.813
+      '@rbxts/validate-tree': 2.0.2
 
   '@rbxts/promise-child@1.2.1': {}
 
@@ -5817,6 +5907,8 @@ snapshots:
 
   '@rbxts/remo@1.5.2': {}
 
+  '@rbxts/rewire@0.3.0': {}
+
   '@rbxts/ripple@0.9.1': {}
 
   '@rbxts/services@1.5.5': {}
@@ -5838,6 +5930,11 @@ snapshots:
   '@rbxts/ui-labs@2.3.0': {}
 
   '@rbxts/validate-tree@2.0.2': {}
+
+  '@rbxts/visualize@1.1.1':
+    dependencies:
+      '@rbxts/object-utils': 1.0.4
+      '@rbxts/services': 1.5.5
 
   '@rbxts/zone-plus@3.2.0': {}
 

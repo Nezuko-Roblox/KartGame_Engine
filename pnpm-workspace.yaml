@@ -56,6 +56,14 @@ catalogs:
     '@rbxts/zone-plus': ^3.2.0
     rbxts-transform-debug: 2.2.0
     rbxts-transform-env: 3.0.0
+    '@rbxts/cmdr': 1.12.1
+    '@rbxts/matter': 0.8.5
+    '@rbxts/matter-hooks': 0.1.2
+    '@rbxts/object-utils': 1.0.4
+    '@rbxts/plasma': 0.4.5
+    '@rbxts/promise-character': 1.0.3
+    '@rbxts/rewire': 0.3.0
+    '@rbxts/visualize': 1.1.1
 
 onlyBuiltDependencies:
   - esbuild
