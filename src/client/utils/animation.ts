@@ -1,5 +1,5 @@
 export async function waitAnimationEnd(animator: Animator, animationId: string): Promise<void> {
-	return new Promise(resolve => {
+	return new Promise<void>(resolve => {
 		const animation = new Instance("Animation", animator);
 		animation.AnimationId = animationId;
 		let animationTrack = animator.LoadAnimation(animation);
