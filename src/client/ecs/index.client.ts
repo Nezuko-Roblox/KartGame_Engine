@@ -10,7 +10,7 @@ import { ConfirmLoaded } from "./network";
 import { receiveReplication } from "./receiveReplication";
 
 CmdrClient.SetActivationKeys([Enum.KeyCode.F2]);
-CmdrClient.SetEnabled(false);
+CmdrClient.SetEnabled(true);
 
 const ReplicatedStorage = game.GetService("ReplicatedStorage");
 const StarterGui = game.GetService("StarterGui");
