@@ -1,0 +1,6 @@
+{
+  "id": "orc",
+  "name": "Orc",
+  "stats": {"maxHealth":200, "attackPower":25, "attackRange":4.0, "detectionRange":20.0, "moveSpeed":6.0},
+  "levelMultiplier": 0.15
+}

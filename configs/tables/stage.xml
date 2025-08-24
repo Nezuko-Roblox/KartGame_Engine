@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tables>
+    <!-- 关卡配置表 -->
+    <table name="StageConfigTable" input="../datas/stage" index="id" value="stage.StageConfig" mode="map" comment="关卡配置表"/>
+    <!-- 波次配置表 -->
+    <table name="WaveConfigTable" input="../datas/wave" index="id" value="stage.WaveConfig" mode="map" comment="波次配置表"/>
+</tables>

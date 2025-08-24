@@ -1,0 +1,8 @@
+{
+  "id": "skeleton",
+  "name": "Skeleton",
+  "enemyType": "skeleton",
+  "level": 1,
+  "enemyVariant": "normal",
+  "drops": {"items":[{"itemId":"bone","chance":0.5,"minCount":1,"maxCount":2}],"goldMin":2,"goldMax":6,"exp":7}
+}

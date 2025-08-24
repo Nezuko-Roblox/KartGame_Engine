@@ -1,0 +1,12 @@
+{
+  "id": "stage_1_wave_2",
+  "stageId": "stage_1",
+  "index": 2,
+  "startDelay": 4.0,
+  "spawns": [
+    { "enemyId": "goblin", "count": 4, "enemyLevel": 2, "interval": 0.6, "spawnDelay": 0.0 },
+    { "enemyId": "orc", "count": 1, "enemyLevel": 3, "interval": 0.0, "spawnDelay": 2.0 }
+  ],
+  "rewardGold": 35,
+  "rewardExp": 20
+}

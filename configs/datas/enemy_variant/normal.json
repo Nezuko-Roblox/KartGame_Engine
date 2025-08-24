@@ -1,0 +1,8 @@
+{
+  "id": "normal",
+  "name": "Normal",
+  "statsMod": {"healthMul":1.0, "attackMul":1.0, "speedMul":1.0, "rangeMul":1.0, "rewardGoldMul":1.0, "rewardExpMul":1.0},
+  "extraLevel": 0,
+  "extraDropsChanceMul": 1.0,
+  "tag": "normal"
+}

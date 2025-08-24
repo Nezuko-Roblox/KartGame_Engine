@@ -1,0 +1,6 @@
+{
+  "id": "skeleton",
+  "name": "Skeleton",
+  "stats": {"maxHealth":80, "attackPower":20, "attackRange":5.0, "detectionRange":12.0, "moveSpeed":10.0},
+  "levelMultiplier": 0.15
+}

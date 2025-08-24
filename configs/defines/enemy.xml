@@ -1,0 +1,29 @@
+<module name="enemy" comment="敌人实例配置（引用 enemy_type.EnemyTypeConfig）">
+
+    <!-- 掉落条目配置 -->
+    <bean name="EnemyDropItem" comment="掉落条目">
+        <var name="itemId" type="string" comment="掉落物品ID"/>
+        <var name="chance" type="float" comment="掉落概率（0-1）"/>
+        <var name="minCount" type="int" comment="最小数量"/>
+        <var name="maxCount" type="int" comment="最大数量"/>
+    </bean>
+
+    <!-- 掉落表配置 -->
+    <bean name="EnemyDrops" comment="敌人掉落表">
+        <var name="items" type="list,EnemyDropItem" comment="掉落物品列表"/>
+        <var name="goldMin" type="int" comment="金币掉落最小值"/>
+        <var name="goldMax" type="int" comment="金币掉落最大值"/>
+        <var name="exp" type="int" comment="经验奖励"/>
+    </bean>
+
+    <!-- 敌人配置主体 -->
+    <bean name="EnemyConfig" comment="敌人实例配置（差异化部分）">
+        <var name="id" type="string" comment="实例ID（与表 key 对应）"/>
+        <var name="name" type="string" comment="显示名称（可覆盖类型名称）"/>
+        <var name="drops" type="EnemyDrops" comment="掉落配置"/>
+        <var name="enemyType" type="string" comment="引用 enemy_type.EnemyTypeConfig.id"/>
+        <var name="enemyVariant" type="string" comment="引用 enemy_variant.EnemyVariantConfig.id，默认 normal"/>
+        <var name="level" type="int" comment="基础等级（在类型基础上计算最终属性）"/>
+    </bean>
+
+</module>

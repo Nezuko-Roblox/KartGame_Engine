@@ -1,0 +1,35 @@
+<module name="stage" comment="关卡与波次配置">
+    
+    <!-- 关卡配置主体（仅描述关卡基本信息与波次引用） -->
+    <bean name="StageConfig" comment="关卡配置">
+        <var name="id" type="string" comment="关卡ID"/>
+        <var name="name" type="string" comment="关卡名称"/>
+        <var name="recommendedLevel" type="int" comment="推荐等级"/>
+        <var name="waveIds" type="list,string" comment="该关卡所包含的波次ID列表（引用 WaveConfig.id）"/>
+        <var name="loop" type="bool" comment="通关后是否循环"/>
+        <var name="unlockNextStageId" type="string?" comment="解锁的下一关ID"/>
+    </bean>
+
+    <!-- 波次中单个敌人生成条目（同类敌人批量生成规则） -->
+    <bean name="WaveSpawn" comment="波次敌人生成条目">
+        <var name="enemyId" type="string" comment="敌人配置ID（引用 EnemyConfig.id）"/>
+        <var name="count" type="int" comment="生成数量"/>
+        <var name="enemyLevel" type="int" comment="敌人等级（基础等级附加值或绝对等级）"/>
+        <var name="interval" type="float" comment="同条目每个敌人之间的生成间隔（秒）"/>
+        <var name="spawnDelay" type="float" comment="该条目相对波次开始的延迟（秒）"/>
+        <var name="spawnAreaId" type="string?" comment="生成区域/点位组ID（可选）"/>
+    </bean>
+
+    <!-- 波次配置（与关卡分离，可独立被多个关卡引用） -->
+    <bean name="WaveConfig" comment="波次配置">
+        <var name="id" type="string" comment="波次ID"/>
+        <var name="stageId" type="string" comment="所属关卡ID（冗余便于反查）"/>
+        <var name="index" type="int" comment="波次序号（从1开始）"/>
+        <var name="startDelay" type="float" comment="进入关卡或上一波结束后到本波开始的延迟（秒）"/>
+        <var name="spawns" type="list,WaveSpawn" comment="敌人生成条目列表"/>
+        <var name="rewardGold" type="int" comment="通关本波额外金币奖励"/>
+        <var name="rewardExp" type="int" comment="通关本波额外经验奖励"/>
+        <var name="unlockStageId" type="string?" comment="通关本波直接解锁的关卡ID（可选跳转）"/>
+    </bean>
+
+</module>

@@ -1,0 +1,8 @@
+{
+  "id": "elite",
+  "name": "Elite",
+  "statsMod": {"healthMul":1.8, "attackMul":1.5, "speedMul":1.1, "rangeMul":1.1, "rewardGoldMul":2.0, "rewardExpMul":2.0},
+  "extraLevel": 2,
+  "extraDropsChanceMul": 1.5,
+  "tag": "elite"
+}

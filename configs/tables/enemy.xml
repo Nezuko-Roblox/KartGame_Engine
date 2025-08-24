@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tables>
+    <!-- 敌人配置表 -->
+    <table name="EnemyConfigTable" input="../datas/enemy" index="id" value="enemy.EnemyConfig" mode="map" comment="敌人配置表"/>
+    <!-- 敌人类型配置表 -->
+    <table name="EnemyTypeConfigTable" input="../datas/enemy_type" index="id" value="enemy_type.EnemyTypeConfig" mode="map" comment="敌人类型配置表"/>
+    <!-- 敌人变体配置表 -->
+    <table name="EnemyVariantConfigTable" input="../datas/enemy_variant" index="id" value="enemy_variant.EnemyVariantConfig" mode="map" comment="敌人变体配置表"/>
+</tables>

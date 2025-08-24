@@ -1,0 +1,14 @@
+{
+  "id": "stage_1_wave_3",
+  "stageId": "stage_1",
+  "index": 3,
+  "startDelay": 5.0,
+  "spawns": [
+    { "enemyId": "orc", "count": 2, "enemyLevel": 3, "interval": 0.7, "spawnDelay": 0.0 },
+    { "enemyId": "skeleton", "count": 2, "enemyLevel": 3, "interval": 0.5, "spawnDelay": 1.0 },
+    { "enemyId": "boss_dragon", "count": 1, "enemyLevel": 6, "interval": 0.0, "spawnDelay": 6.0 }
+  ],
+  "rewardGold": 120,
+  "rewardExp": 150,
+  "unlockStageId": "stage_2"
+}

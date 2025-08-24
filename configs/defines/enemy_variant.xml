@@ -1,0 +1,21 @@
+<module name="enemy_variant" comment="敌人变体/稀有度配置">
+    <!-- 变体属性修正 -->
+    <bean name="EnemyVariantStatsModifier" comment="变体属性百分比修正 (1.0 = 不变, 1.2 = +20%)">
+        <var name="healthMul" type="float" comment="生命倍率"/>
+        <var name="attackMul" type="float" comment="攻击倍率"/>
+        <var name="speedMul" type="float" comment="移动速度倍率"/>
+        <var name="rangeMul" type="float" comment="攻击/检测范围倍率"/>
+        <var name="rewardGoldMul" type="float" comment="金币掉落倍率"/>
+        <var name="rewardExpMul" type="float" comment="经验掉落倍率"/>
+    </bean>
+
+    <!-- 变体配置 -->
+    <bean name="EnemyVariantConfig" comment="敌人变体配置">
+        <var name="id" type="string" comment="变体ID（normal/elite/boss/...）"/>
+        <var name="name" type="string" comment="显示名称"/>
+        <var name="statsMod" type="EnemyVariantStatsModifier" comment="属性修正"/>
+        <var name="extraLevel" type="int" comment="额外等级加成"/>
+        <var name="extraDropsChanceMul" type="float" comment="额外物品掉落几率倍率"/>
+        <var name="tag" type="string" comment="标记（用于逻辑/特效区分）"/>
+    </bean>
+</module>

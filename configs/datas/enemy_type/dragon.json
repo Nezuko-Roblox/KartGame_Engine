@@ -1,0 +1,6 @@
+{
+  "id": "dragon",
+  "name": "Dragon",
+  "stats": {"maxHealth":1000, "attackPower":50, "attackRange":8.0, "detectionRange":30.0, "moveSpeed":4.0},
+  "levelMultiplier": 0.2
+}

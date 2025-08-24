@@ -1,0 +1,8 @@
+{
+  "id": "stage_1",
+  "name": "森林外围",
+  "recommendedLevel": 1,
+  "waveIds": ["stage_1_wave_1", "stage_1_wave_2", "stage_1_wave_3"],
+  "loop": false,
+  "unlockNextStageId": "stage_2"
+}

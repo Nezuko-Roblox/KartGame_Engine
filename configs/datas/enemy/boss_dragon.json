@@ -1,0 +1,8 @@
+{
+  "id": "boss_dragon",
+  "name": "Boss Dragon",
+  "enemyType": "dragon",
+  "level": 5,
+  "enemyVariant": "boss",
+  "drops": {"items":[{"itemId":"dragon_scale","chance":0.5,"minCount":1,"maxCount":2},{"itemId":"dragon_claw","chance":0.25,"minCount":1,"maxCount":1}],"goldMin":100,"goldMax":200,"exp":250}
+}

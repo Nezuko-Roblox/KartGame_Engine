@@ -1,0 +1,8 @@
+{
+  "id": "orc",
+  "name": "Orc",
+  "enemyType": "orc",
+  "level": 1,
+  "enemyVariant": "normal",
+  "drops": {"items":[{"itemId":"gold_coin","chance":0.6,"minCount":2,"maxCount":5},{"itemId":"orc_tooth","chance":0.25,"minCount":1,"maxCount":1}],"goldMin":6,"goldMax":14,"exp":12}
+}

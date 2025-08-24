@@ -1,0 +1,21 @@
+<module name="enemy_type" comment="敌人类型配置（模板级别，全局共享）">
+    
+    <!-- 类型基础数值 -->
+    <bean name="EnemyTypeStats" comment="敌人类型基础数值">
+        <var name="maxHealth" type="int" comment="基础最大生命值"/>
+        <var name="attackPower" type="int" comment="基础攻击力"/>
+        <var name="attackRange" type="float" comment="攻击范围（studs）"/>
+        <var name="detectionRange" type="float" comment="警戒范围（studs）"/>
+        <var name="moveSpeed" type="float" comment="移动速度（studs/秒）"/>
+    </bean>
+
+
+    <!-- 敌人类型配置 -->
+    <bean name="EnemyTypeConfig" comment="敌人类型（模板）配置">
+        <var name="id" type="string" comment="类型ID（与表 key 对应）"/>
+        <var name="name" type="string" comment="类型名称"/>
+        <var name="stats" type="EnemyTypeStats" comment="基础数值"/>
+        <var name="levelMultiplier" type="float" comment="每级属性加成（例如 0.15 表示 +15%）"/>
+    </bean>
+
+</module>
