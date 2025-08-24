@@ -31,7 +31,7 @@ Cmdr.Registry.RegisterHook("BeforeRun", (context: CommandContextWithWorld) => {
 		return "Admin only";
 	}
 
-	return "";
+	return void 0;
 });
 
 // 注册命令类型和命令

@@ -22,7 +22,6 @@ export = function (
 	z: number,
 	level = 1,
 ) {
-	print(`Spawn request received: ${enemyType} (Level ${level}) at (${x}, ${y}, ${z})`);
 	const { world } = context;
 	if (!world) {
 		return "World not available (permission denied or not initialized)";
