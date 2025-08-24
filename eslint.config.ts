@@ -104,4 +104,10 @@ export default style(
 			"ts/explicit-function-return-type": "off",
 		},
 	},
+	{
+		files: ["**/ecs/commands/**/*"],
+		rules: {
+			"unicorn/filename-case": "off",
+		},
+	},
 );

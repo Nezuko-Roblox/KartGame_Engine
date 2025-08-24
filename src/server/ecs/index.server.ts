@@ -23,15 +23,9 @@ const world = start(
 
 // 注册命令执行前的权限检查钩子
 Cmdr.Registry.RegisterHook("BeforeRun", (context: CommandContextWithWorld) => {
-	const groupId = $env.number("GROUP_ID");
 	const studio = RunService.IsStudio();
-	let isAdmin = false;
-	if (groupId !== undefined) {
-		const role = context.Executor.GetRoleInGroup(groupId);
-		isAdmin = role === "Admin" || role === "Owner";
-	}
 
-	if (isAdmin || studio) {
+	if (studio) {
 		context.world = world;
 	} else {
 		return "Admin only";
