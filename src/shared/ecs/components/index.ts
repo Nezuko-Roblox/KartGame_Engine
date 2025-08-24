@@ -5,3 +5,4 @@ export * from "./client";
 export * from "./damage";
 export * from "./enemy";
 export * from "./player";
+export * from "./stage";
