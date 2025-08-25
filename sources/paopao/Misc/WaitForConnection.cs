@@ -1,0 +1,10 @@
+﻿using System;
+
+public enum WaitForConnection
+{
+	NOT_CONNECT,
+	CONNECTING,
+	CHECKED_MULTIPLAYER_VERSION,
+	CONNECTED,
+	RECEIVE_GAMEPARAM
+}

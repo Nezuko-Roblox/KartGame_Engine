@@ -6,13 +6,13 @@ export const CHARACTER_LOAD_TIMEOUT = 10;
 export type CharacterRig = EvaluateInstanceTree<typeof characterSchema>;
 
 export const characterSchema = {
-	$className: "Model",
-	Head: "MeshPart",
-	Humanoid: {
-		$className: "Humanoid",
-		Animator: "Animator",
-	},
-	HumanoidRootPart: "BasePart",
+    $className: "Model",
+    Head: "MeshPart",
+    Humanoid: {
+        $className: "Humanoid",
+        Animator: "Animator",
+    },
+    HumanoidRootPart: "BasePart",
 } as const;
 
 /**
@@ -22,12 +22,12 @@ export const characterSchema = {
  * @see https://twitter.com/mrchickenrocket/status/1699005062360789405?s=46
  */
 export function cleanupCharacter(player: Player): void {
-	if (!player.Character) {
-		return;
-	}
+    if (!player.Character) {
+        return;
+    }
 
-	player.Character.Destroy();
-	player.Character = undefined;
+    player.Character.Destroy();
+    player.Character = undefined;
 }
 
 /**
@@ -37,13 +37,13 @@ export function cleanupCharacter(player: Player): void {
  * @returns The player with the given username, if any.
  */
 export function getPlayerByName(name: string): Player | undefined {
-	const player = Players.FindFirstChild(name);
+    const player = Players.FindFirstChild(name);
 
-	if (player?.IsA("Player") === false) {
-		return;
-	}
+    if (player?.IsA("Player") === false) {
+        return;
+    }
 
-	return player;
+    return player;
 }
 
 /**
@@ -57,13 +57,13 @@ export function getPlayerByName(name: string): Player | undefined {
  * @see character-service.ts which handles retries
  */
 export async function loadCharacter(player: Player): Promise<void> {
-	await Promise.race<unknown>([
-		Promise.try(() => {
-			cleanupCharacter(player);
-			player.LoadCharacter();
-		}),
-		Promise.delay(CHARACTER_LOAD_TIMEOUT),
-	]);
+    await Promise.race([
+        Promise.try(() => {
+            cleanupCharacter(player);
+            player.LoadCharacter();
+        }),
+        Promise.delay(CHARACTER_LOAD_TIMEOUT) as unknown as Promise<void>,
+    ]);
 }
 
 /**
@@ -77,15 +77,15 @@ export async function loadCharacter(player: Player): Promise<void> {
  *   event.
  */
 export function onCharacterAdded(player: Player, callback: (rig: Model) => void): () => void {
-	if (player.Character) {
-		callback(player.Character);
-	}
+    if (player.Character) {
+        callback(player.Character);
+    }
 
-	const connection = player.CharacterAdded.Connect(callback);
+    const connection = player.CharacterAdded.Connect(callback);
 
-	return () => {
-		connection.Disconnect();
-	};
+    return () => {
+        connection.Disconnect();
+    };
 }
 
 /**
@@ -97,15 +97,15 @@ export function onCharacterAdded(player: Player, callback: (rig: Model) => void)
  * @returns A function that, when called, disconnects the connection.
  */
 export function onPlayerAdded(callback: (player: Player) => void): () => void {
-	const connection = Players.PlayerAdded.Connect(callback);
+    const connection = Players.PlayerAdded.Connect(callback);
 
-	for (const player of Players.GetPlayers()) {
-		callback(player);
-	}
+    for (const player of Players.GetPlayers()) {
+        callback(player);
+    }
 
-	return () => {
-		connection.Disconnect();
-	};
+    return () => {
+        connection.Disconnect();
+    };
 }
 
 /**
@@ -117,9 +117,9 @@ export function onPlayerAdded(callback: (player: Player) => void): () => void {
  * @returns A promise that resolves when the player is disconnected.
  */
 export async function promisePlayerDisconnected(player: Player): Promise<void> {
-	if (!player.IsDescendantOf(Players)) {
-		return;
-	}
+    if (!player.IsDescendantOf(Players)) {
+        return;
+    }
 
-	await Promise.fromEvent(Players.PlayerRemoving, playerWhoLeft => playerWhoLeft === player);
+    await Promise.fromEvent(Players.PlayerRemoving, playerWhoLeft => playerWhoLeft === player);
 }
