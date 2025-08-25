@@ -27,7 +27,6 @@ function ClientSkidmarkManager.new(rigidbodyWalker)
     
     return self
 end
-
 function ClientSkidmarkManager:Update()
     -- 获取 goPlayKart
     if not self.goPlayKart then

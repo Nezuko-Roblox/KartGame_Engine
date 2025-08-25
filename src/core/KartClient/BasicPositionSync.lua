@@ -45,9 +45,9 @@ function BasicPositionSync.new(remotePlayer)
         -- 设置为幽灵车
         for _, part in pairs(self.kartModel:GetDescendants()) do
             if part:IsA("BasePart") then
-                part.CanCollide = false
-                part.CanTouch = false
-                part.CanQuery = false
+                part.CanCollide = true
+                part.CanTouch = true
+                part.CanQuery = true
             end
         end
     end
