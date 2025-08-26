@@ -4,7 +4,8 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 -- 等待 KartEngine 加载
-local KartEngine = ReplicatedStorage:WaitForChild("KartEngine")
+local TS = ReplicatedStorage:WaitForChild("TS")
+local KartEngine = TS:WaitForChild("kartEngine")
 
 -- 初始化客户端系统
 print("[KartClientInit] 启动客户端系统...")

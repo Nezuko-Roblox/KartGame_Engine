@@ -61,4 +61,7 @@ function KartManager:SetKart(idx, builder, controller, wheelPos)
     return self.goKart_[idx]
 end
 
+-- 暴露到全局变量供TypeScript ECS系统使用
+_G.KartManager = KartManager
+
 return KartManager

@@ -12,4 +12,7 @@ local BoostKind = {
     BoostDelivery = 9
 }
 
+-- 暴露到全局变量供TypeScript ECS系统使用
+_G.BoostKind = BoostKind
+
 return BoostKind

@@ -11,6 +11,13 @@ local function protectCharacter(character)
         return
     end
     
+    -- 取消角色所有部件的锚固
+    for _, part in pairs(character:GetDescendants()) do
+        if part:IsA("BasePart") then
+            part.Anchored = true
+        end
+    end
+    
     -- 设置无限生命值
     humanoid.MaxHealth = math.huge
     humanoid.Health = math.huge

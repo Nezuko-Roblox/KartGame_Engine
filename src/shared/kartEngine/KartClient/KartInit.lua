@@ -6,7 +6,7 @@ local Workspace = game:GetService("Workspace")
 local RunService = game:GetService("RunService")
 
 -- 等待ReplicatedStorage中的共享模块加载
-local KartEngine = ReplicatedStorage:WaitForChild("KartEngine")
+local KartEngine = ReplicatedStorage:WaitForChild("TS"):waitForChild("kartEngine")
 local RigidbodyFPSWalker = require(KartEngine.KartMove.RigidbodyFPSWalker)
 local UnityCameraFollow = require(KartEngine.KartShared.UnityCameraFollow)
 

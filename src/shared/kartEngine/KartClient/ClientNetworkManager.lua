@@ -8,7 +8,7 @@ local Workspace = game:GetService("Workspace")
 local RunService = game:GetService("RunService")
 
 -- 获取 KartEngine
-local KartEngine = ReplicatedStorage:WaitForChild("KartEngine")
+local KartEngine = ReplicatedStorage:WaitForChild("TS"):waitForChild("kartEngine")
 
 
 local player = Players.LocalPlayer
@@ -238,14 +238,32 @@ function ClientNetworkManager:createRemoteKart(playerData)
     
     remoteKart.Parent = Workspace
     
-    -- 远程赛车不需要RigidbodyFPSWalker，只是显示模型
-    -- 不创建物理控制器
+    -- 分配kartIndex
+    local kartIndex = self.nextRemoteKartIndex
+    self.nextRemoteKartIndex = self.nextRemoteKartIndex + 1
+    
+    -- 创建远程赛车的GoPlayKart实例并注册到KartManager
+    local KartManager = require(KartEngine.KartMove.KartManager)
+    local GoPlayKartBuilder = require(KartEngine.GameStage.GoPlayKartBuilder)
+    
+    -- 创建一个简单的控制器用于远程赛车（不需要物理模拟）
+    local remoteController = {
+        gameObject = remoteKart,
+        transform = remoteKart.PrimaryPart,
+        kartIndex_ = kartIndex
+    }
+    
+    -- 使用KartManager注册远程赛车
+    local goKart = KartManager.Instance:SetKart(kartIndex, GoPlayKartBuilder.new(), remoteController, {})
     
     -- 保存远程玩家数据
     local remotePlayerData = {
         userId = playerData.playerId,
         name = playerData.playerName,
-        kartModel = remoteKart
+        kartModel = remoteKart,
+        kartIndex = kartIndex,
+        goKart = goKart,
+        controller = remoteController
     }
     
     -- 使用基础位置同步

@@ -106,7 +106,7 @@ end
 -- 方法1: Unity的Awake()方法迁移 - 完全对应Unity版本逻辑
 function RigidbodyFPSWalker:Awake()
     -- 调用基类Awake
-    -- KartBasicController.Awake(self)
+    KartBasicController.Awake(self)
     
     -- 设置游戏对象名称
     if self.gameObject then
@@ -144,7 +144,11 @@ function RigidbodyFPSWalker:Awake()
     
     
     -- 设置GoPlayKart，使用当前的kartIndex_
-    self.goPlayKart_ = KartManager.Instance:SetKart(self.kartIndex_, GoPlayKartBuilder.new(), self, self.wheels_)
+    self.goPlayKart_ = KartManager.Instance:SetKart(KartManager.PLAYER_KART_IDX, GoPlayKartBuilder.new(), self, self.wheels_)
+    -- 通知ECS系统卡丁车已创建
+    if _G.ECS_OnKartCreated then
+        _G.ECS_OnKartCreated(KartManager.PLAYER_KART_IDX, self.goPlayKart_)
+    end
 end
 
 -- 方法2: Unity的Start()方法迁移 - 完全对应Unity版本
@@ -204,9 +208,9 @@ function RigidbodyFPSWalker:InputUpdate()
     end
     
     -- 加速控制 - 对应Unity的KeyCode.Space
-    if Input.GetKey(Enum.KeyCode.Space) then
-        self.goPlayKart_:setBoost(1000, BoostKind.BoostNormal)
-    end
+    -- if Input.GetKey(Enum.KeyCode.Space) then
+    --     self.goPlayKart_:setBoost(1000, BoostKind.BoostNormal)
+    -- end
 end
 
 -- 方法7: UpdateWheels方法迁移 - 使用Roblox原生CFrame然后转换为Quaternion
