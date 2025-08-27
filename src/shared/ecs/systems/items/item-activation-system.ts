@@ -9,8 +9,9 @@ import { Stack } from "shared/util/stack";
  * 道具激活系统 - 处理道具使用
  */
 function itemActivationSystem(world: World): void {
+	
 	const bridge = KartECSBridge.getInstance();
-	// 确保桥接器使用正确的 world
+	// 确保桥接器已初始化
 	bridge.initialize(world);
 	
 	const events = ItemEventBus.consume();
@@ -99,6 +100,7 @@ function activateItem(world: World, entity: AnyEntity, itemType: string, kartRef
 			print("[ItemActivationSystem] Missile item not implemented yet");
 			break;
 
+			
 		case "Shield":
 			// TODO: 实现护盾道具
 			print("[ItemActivationSystem] Shield item not implemented yet");
@@ -110,6 +112,6 @@ function activateItem(world: World, entity: AnyEntity, itemType: string, kartRef
 }
 
 export = {
-	priority: 90,
+	priority: 10, 
 	system: itemActivationSystem,
 };

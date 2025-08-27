@@ -1,35 +1,25 @@
-import { start } from "shared/ecs/start";
 import { KartECSBridge } from "shared/ecs/bridge/kart-ecs-bridge";
 import { ItemEventBus } from "shared/ecs/bridge/event-bus";
-import { ItemHolder } from "shared/ecs/components/items";
 
 const UserInputService = game.GetService("UserInputService");
 const RunService = game.GetService("RunService");
 
 /**
- * 初始化道具系统
+ * 初始化道具系统 - 设置全局函数和输入处理
  */
 export function initItemSystem(): void {
 	print("[ItemSystem] Starting initialization...");
 	
-	// 调试：检查全局变量
-	debugGlobalVariables();
-
 	// 设置全局函数供Lua调用
 	ItemEventBus.setupGlobalFunctions();
 	
-	// 注意：KartECSBridge 将在第一个系统运行时初始化
-	// 这样可以确保使用正确的 World 实例
-
 	// 设置输入监听（仅客户端）
 	if (RunService.IsClient()) {
 		setupInputHandling();
 	}
 
-	// 注意：测试代码已移除
-	// 道具应该通过游戏逻辑添加，而不是在初始化时硬编码
-
-	print("[ItemSystem] Initialization complete");
+	print("[ItemSystem] Basic initialization complete");
+	print("[ItemSystem] Bridge will be initialized in item-activation-system");
 }
 
 /**
@@ -64,40 +54,3 @@ function setupInputHandling(): void {
 	print("[ItemSystem] Input handling setup complete");
 }
 
-/**
- * 调试全局变量
- */
-function debugGlobalVariables(): void {
-	print("[ItemSystem] Debugging global variables...");
-	
-	const globalG = _G as unknown as Record<string, unknown>;
-	
-	print("[ItemSystem] Available global variables:");
-	for (const [key, value] of pairs(globalG)) {
-		if (typeOf(value) === "table" && typeOf(key) === "string" && (key as string).find("Kart")) {
-			print(`  - ${key}: ${typeOf(value)}`);
-		}
-	}
-	
-	// 检查 KartManager
-	if (globalG.KartManager) {
-		print(`[ItemSystem] Found KartManager: ${typeOf(globalG.KartManager)}`);
-		const kartManager = globalG.KartManager as unknown as { Instance?: unknown };
-		if (kartManager.Instance) {
-			print(`[ItemSystem] Found KartManager.Instance: ${typeOf(kartManager.Instance)}`);
-		}
-	} else {
-		print("[ItemSystem] KartManager not found in global variables");
-	}
-	
-	// 检查 BoostKind
-	if (globalG.BoostKind) {
-		print(`[ItemSystem] Found BoostKind: ${typeOf(globalG.BoostKind)}`);
-		const boostKind = globalG.BoostKind as unknown as { BoostNormal?: number };
-		if (boostKind.BoostNormal !== undefined) {
-			print(`[ItemSystem] BoostKind.BoostNormal = ${boostKind.BoostNormal}`);
-		}
-	} else {
-		print("[ItemSystem] BoostKind not found in global variables");
-	}
-}
