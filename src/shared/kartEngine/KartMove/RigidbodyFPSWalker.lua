@@ -145,10 +145,13 @@ function RigidbodyFPSWalker:Awake()
     
     -- 设置GoPlayKart，使用当前的kartIndex_
     self.goPlayKart_ = KartManager.Instance:SetKart(KartManager.PLAYER_KART_IDX, GoPlayKartBuilder.new(), self, self.wheels_)
-    -- 通知ECS系统卡丁车已创建
+    
+    -- 通知ECS系统卡丁车已创建（如果ECS已准备好）
     if _G.ECS_OnKartCreated then
         _G.ECS_OnKartCreated(KartManager.PLAYER_KART_IDX, self.goPlayKart_)
+        -- print("[RigidbodyFPSWalker] ECS notification sent for kart", KartManager.PLAYER_KART_IDX)
     end
+    -- 如果ECS还没准备好，ECS初始化时会主动扫描已存在的卡丁车
 end
 
 -- 方法2: Unity的Start()方法迁移 - 完全对应Unity版本

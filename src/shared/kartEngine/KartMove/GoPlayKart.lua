@@ -520,7 +520,11 @@ function GoPlayKart:setReKart(controller, wheels)
     -- 获取模型的尺寸
     local x, z
     -- 获取底层的Roblox对象
-    local robloxObject = self.m_kart and self.m_kart.gameObject or self.m_kart
+    local robloxObject = self.m_kart
+    -- 安全地检查是否有gameObject属性
+    if self.m_kart and type(self.m_kart) == "table" and self.m_kart.gameObject then
+        robloxObject = self.m_kart.gameObject
+    end
     if robloxObject and robloxObject.IsA then
         if robloxObject:IsA("Model") then
             -- 对于Model，使用GetBoundingBox获取整体尺寸
@@ -956,7 +960,11 @@ function GoPlayKart:setReKartOld(obj, wheels)
     -- 获取模型的尺寸
     local x, z
     -- 获取底层的Roblox对象
-    local robloxObject = self.m_kart and self.m_kart.gameObject or self.m_kart
+    local robloxObject = self.m_kart
+    -- 安全地检查是否有gameObject属性
+    if self.m_kart and type(self.m_kart) == "table" and self.m_kart.gameObject then
+        robloxObject = self.m_kart.gameObject
+    end
     if robloxObject and robloxObject.IsA then
         if robloxObject:IsA("Model") then
             -- 对于Model，使用GetBoundingBox获取整体尺寸

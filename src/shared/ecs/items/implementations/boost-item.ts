@@ -9,7 +9,7 @@ export class BoostItem {
 	/** 配置常量 */
 	static readonly CONFIG = {
 		/** 加速持续时间（毫秒） */
-		duration: 3000,
+		duration: 2000,
 	};
 
 	/**

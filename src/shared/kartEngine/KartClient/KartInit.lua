@@ -153,57 +153,6 @@ local function initializeKart()
         clientNetworkManager:setupLocalKart(kartModel, rigidbodyWalker)
         print("[KartInit] 网络同步已启用 - 本地使用RigidbodyFPSWalker，远程玩家状态同步")
     end
-
-    
-    -- 显示控制提示
-    local gui = Instance.new("ScreenGui")
-    gui.Name = "KartControlsGUI"
-    gui.Parent = player.PlayerGui
-    
-    local frame = Instance.new("Frame")
-    frame.Size = UDim2.new(0, 300, 0, 170)
-    frame.Position = UDim2.new(0, 10, 0, 10)
-    frame.BackgroundColor3 = Color3.new(0, 0, 0)
-    frame.BackgroundTransparency = 0.3
-    frame.BorderSizePixel = 0
-    frame.Parent = gui
-    
-    local corner = Instance.new("UICorner")
-    corner.CornerRadius = UDim.new(0, 8)
-    corner.Parent = frame
-    
-    local title = Instance.new("TextLabel")
-    title.Size = UDim2.new(1, 0, 0, 30)
-    title.Position = UDim2.new(0, 0, 0, 0)
-    title.BackgroundTransparency = 1
-    title.Text = "🏎️ 赛车控制" .. (networkEnabled and " [网络模式 - 本地物理]" or " [单机模式]")
-    title.TextColor3 = Color3.new(1, 1, 1)
-    title.TextScaled = true
-    title.Font = Enum.Font.SourceSansBold
-    title.Parent = frame
-    
-    local controls = Instance.new("TextLabel")
-    controls.Size = UDim2.new(1, -20, 1, -40)
-    controls.Position = UDim2.new(0, 10, 0, 35)
-    controls.BackgroundTransparency = 1
-    controls.Text = "W/S - 前进/后退\nA/D - 左转/右转\nShift - 漂移\nSpace - 加速"
-    
-    if networkEnabled then
-        controls.Text = controls.Text .. "\n\n🌐 本地物理计算 + 远程同步"
-    end
-    
-    controls.TextColor3 = Color3.new(1, 1, 1)
-    controls.TextScaled = true
-    controls.Font = Enum.Font.SourceSans
-    controls.TextXAlignment = Enum.TextXAlignment.Left
-    controls.TextYAlignment = Enum.TextYAlignment.Top
-    controls.Parent = frame
-    
-    -- 5秒后隐藏提示
-    task.wait(5)
-    if gui then
-        gui:Destroy()
-    end
 end
 
 -- 启动初始化

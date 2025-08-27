@@ -247,6 +247,7 @@ function ClientNetworkManager:createRemoteKart(playerData)
     local GoPlayKartBuilder = require(KartEngine.GameStage.GoPlayKartBuilder)
     
     -- 创建一个简单的控制器用于远程赛车（不需要物理模拟）
+    -- 保持与本地赛车一致的结构，包装在 gameObject 中
     local remoteController = {
         gameObject = remoteKart,
         transform = remoteKart.PrimaryPart,

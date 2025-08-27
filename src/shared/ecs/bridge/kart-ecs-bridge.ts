@@ -27,6 +27,7 @@ export class KartECSBridge {
 		}
 		this.world = world;
 		this.setupKartNotificationListener();
+		this.scanExistingKarts();
 		// print("[KartECSBridge] Initialized with notification listener");
 	}
 	
@@ -56,6 +57,34 @@ export class KartECSBridge {
 		// print("[KartECSBridge] Notification listener setup complete");
 	}
 
+	/**
+	 * 扫描已存在的卡丁车
+	 */
+	private scanExistingKarts(): void {
+		// 检查 KartManager 是否已存在卡丁车
+		const globalG = _G as unknown as {
+			KartManager?: {
+				Instance?: {
+					goKart_?: Record<number, unknown>;
+					goKartCount_?: number;
+				};
+			};
+		};
+		if (!globalG.KartManager?.Instance) {
+			return;
+		}
+		const kartManager = globalG.KartManager.Instance;
+		if (!kartManager.goKart_) {
+			return;
+		}
+		// 扫描所有可能的卡丁车索引
+		for (const [index, kart] of pairs(kartManager.goKart_)) {
+			if (kart && !this.kartToEntity.has(index as number)) {
+				print(`[KartECSBridge] Found existing kart at index ${index}`);
+				this.registerKart(index as number, kart);
+			}
+		}
+	}
 
 	/**
 	 * 注册卡丁车到ECS
