@@ -32,6 +32,9 @@ export class CharacterController implements OnStart {
 
 	/** @ignore */
 	public onStart(): void {
+		// 禁用角色控制器 - 卡丁车游戏不需要角色操作
+		return;
+		
 		onCharacterAdded(LocalPlayer, character => {
 			this.characterAdded(character).catch(err => {
 				this.logger.Fatal(`Could not get character rig because:\n${err}`);

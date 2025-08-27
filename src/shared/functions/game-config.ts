@@ -3,6 +3,7 @@ import { $NODE_ENV } from "rbxts-transform-env";
 export enum GameId {
 	Production = 6110424408,
 	Development = 8522875380,
+	Testing = 8163257740,
 }
 
 function IsGameId(value: number): value is GameId {

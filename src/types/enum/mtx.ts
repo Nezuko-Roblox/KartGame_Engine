@@ -4,6 +4,7 @@ export const GamePass = {
 	Example: getConfigValueForGame({
 		[GameId.Development]: "6031475575",
 		[GameId.Production]: "6110424408",
+		[GameId.Testing]: "8163257740",
 	}),
 } as const;
 
@@ -17,6 +18,7 @@ export const Product = {
 	Example: getConfigValueForGame({
 		[GameId.Development]: "6031475575",
 		[GameId.Production]: "6110424408",
+		[GameId.Testing]: "8163257740",
 	}),
 } as const;
 
