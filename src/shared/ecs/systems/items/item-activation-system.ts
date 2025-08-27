@@ -3,6 +3,7 @@ import { ItemEventBus } from "shared/ecs/bridge/event-bus";
 import { KartECSBridge } from "shared/ecs/bridge/kart-ecs-bridge";
 import { ItemHolder, KartReference } from "shared/ecs/components/items";
 import { BoostItem } from "shared/ecs/items/implementations/boost-item";
+import { Stack } from "shared/util/stack";
 
 /**
  * 道具激活系统 - 处理道具使用
@@ -38,10 +39,10 @@ function itemActivationSystem(world: World): void {
 			continue;
 		}
 
-		// 获取当前槽位的道具
-		const item = holder.items[holder.currentSlot];
+		// 从栈顶获取道具（使用peek查看，不立即弹出）
+		const item = holder.itemStack.peek();
 		if (!item) {
-			print(`[ItemActivationSystem] No item in slot ${holder.currentSlot} for kart ${event.kartIndex}`);
+			print(`[ItemActivationSystem] No items in stack for kart ${event.kartIndex}`);
 			continue;
 		}
 
@@ -62,15 +63,15 @@ function itemActivationSystem(world: World): void {
 		print(`[ItemActivationSystem] Activating item: ${item} for kart ${event.kartIndex}`);
 		activateItem(world, entity, item, kartRef);
 
-		// 消耗道具
-		const newItems = [...holder.items];
-		newItems[holder.currentSlot] = undefined;
+		// 从栈中弹出道具（消耗）
+		const newStack = holder.itemStack.clone();
+		newStack.pop();
 
 		// 更新持有者状态
 		world.insert(
 			entity,
 			holder.patch({
-				items: newItems,
+				itemStack: newStack,
 				lastUsedTime: now,
 			}),
 		);

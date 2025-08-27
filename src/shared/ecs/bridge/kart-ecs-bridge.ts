@@ -1,5 +1,6 @@
 import type { World, AnyEntity } from "@rbxts/matter";
 import { KartReference, ItemHolder } from "shared/ecs/components/items";
+import { Stack } from "shared/util/stack";
 
 /**
  * 卡丁车ECS桥接器 - 连接ECS系统和原有卡丁车系统
@@ -84,8 +85,7 @@ export class KartECSBridge {
 				isPlayer,
 			}),
 			ItemHolder({
-				items: new Array(3), // 3个道具槽位
-				currentSlot: 0,
+				itemStack: new Stack<string>(3), // 3个道具槽位的栈
 				maxSlots: 3,
 				frozen: false,
 			}),
