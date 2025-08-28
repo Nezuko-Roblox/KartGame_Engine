@@ -27,7 +27,7 @@ export class KartECSBridge {
 		}
 		this.world = world;
 		this.setupKartNotificationListener();
-		this.scanExistingKarts();
+		// this.scanExistingKarts();
 		// print("[KartECSBridge] Initialized with notification listener");
 	}
 	

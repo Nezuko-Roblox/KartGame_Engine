@@ -13,7 +13,6 @@ function itemActivationSystem(world: World): void {
 	const bridge = KartECSBridge.getInstance();
 	// 确保桥接器已初始化
 	bridge.initialize(world);
-	
 	const events = ItemEventBus.consume();
 
 	// 处理使用道具事件
@@ -86,7 +85,7 @@ function itemActivationSystem(world: World): void {
  */
 function activateItem(world: World, entity: AnyEntity, itemType: string, kartRef: KartReference): void {
 	switch (itemType) {
-		case "Boost":
+		case "Booster":
 			BoostItem.activate(world, entity, kartRef);
 			break;
 
@@ -95,12 +94,41 @@ function activateItem(world: World, entity: AnyEntity, itemType: string, kartRef
 			print("[ItemActivationSystem] Banana item not implemented yet");
 			break;
 
-		case "Missile":
-			// TODO: 实现导弹道具
-			print("[ItemActivationSystem] Missile item not implemented yet");
+		case "UFO":
+			// TODO: 实现UFO道具
+			print("[ItemActivationSystem] UFO item not implemented yet");
 			break;
 
-			
+		case "WaterFly":
+			// TODO: 实现水上飞行道具
+			print("[ItemActivationSystem] WaterFly item not implemented yet");
+			break;
+
+		case "WaterBomb":
+			// TODO: 实现水炸弹道具
+			print("[ItemActivationSystem] WaterBomb item not implemented yet");
+			break;
+
+		case "Flip":
+			// TODO: 实现翻转道具
+			print("[ItemActivationSystem] Flip item not implemented yet");
+			break;
+
+		case "Devil":
+			// TODO: 实现恶魔道具
+			print("[ItemActivationSystem] Devil item not implemented yet");
+			break;
+
+		case "WaterMissile":
+			// TODO: 实现水导弹道具
+			print("[ItemActivationSystem] WaterMissile item not implemented yet");
+			break;
+
+		case "Guard":
+			// TODO: 实现护盾道具
+			print("[ItemActivationSystem] Guard item not implemented yet");
+			break;
+
 		case "Shield":
 			// TODO: 实现护盾道具
 			print("[ItemActivationSystem] Shield item not implemented yet");

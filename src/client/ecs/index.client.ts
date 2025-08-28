@@ -5,6 +5,7 @@ import type { AnyEntity } from "@rbxts/matter";
 import type { ClientState } from "shared/ecs/constants/client-state";
 import { start } from "shared/ecs/start";
 import { setupTags } from "shared/ecs/utils/setup-tags";
+import { initializeItemBoxes } from "shared/ecs/plugins/initialize-item-boxes";
 
 import { ConfirmLoaded } from "./network";
 import { receiveReplication } from "./receiveReplication";
@@ -34,4 +35,4 @@ const state: ClientState = {
 declare const script: { systems: Folder };
 
 // 启动客户端 ECS 框架，配置复制接收和标签设置
-start([script.systems, ReplicatedStorage.TS.ecs.systems], state)(receiveReplication, setupTags);
+start([script.systems, ReplicatedStorage.TS.ecs.systems], state)(receiveReplication, setupTags, initializeItemBoxes);

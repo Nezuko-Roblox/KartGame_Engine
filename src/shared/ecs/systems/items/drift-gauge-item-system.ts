@@ -38,7 +38,7 @@ function driftGaugeItemSystem(world: World): void {
 			ItemEventBus.push({
 				type: "PICKUP",
 				kartIndex: kartRef.kartIndex,
-				data: { itemType: "Boost" },
+				data: { itemType: "Booster" },
 				timestamp: tick(),
 			});
 			
@@ -48,7 +48,7 @@ function driftGaugeItemSystem(world: World): void {
 			}
 			goKart.m_driftGauge.gauge = 0;
 			
-			print(`[DriftGauge] 已发送PICKUP事件，道具类型: Boost`);
+			print(`[DriftGauge] 已发送PICKUP事件，道具类型: Booster`);
 		}
 		
 		// 更新记录的集气值
