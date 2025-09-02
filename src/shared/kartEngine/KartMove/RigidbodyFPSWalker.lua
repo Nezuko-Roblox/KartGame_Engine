@@ -142,14 +142,16 @@ function RigidbodyFPSWalker:Awake()
     -- 调用基类初始化
     self:Initialize(0, 0, false)
     
+    -- 获取唯一的卡丁车索引（使用玩家UserId）
+    local playerKartIndex = KartManager.GetPlayerKartIndex()
     
-    -- 设置GoPlayKart，使用当前的kartIndex_
-    self.goPlayKart_ = KartManager.Instance:SetKart(KartManager.PLAYER_KART_IDX, GoPlayKartBuilder.new(), self, self.wheels_)
+    -- 设置GoPlayKart，使用唯一的卡丁车索引
+    self.goPlayKart_ = KartManager.Instance:SetKart(playerKartIndex, GoPlayKartBuilder.new(), self, self.wheels_)
     
-    -- 通知ECS系统卡丁车已创建（如果ECS已准备好）
+    -- 通知ECS系统卡丁车已创建（如果ECS已准备好），使用唯一索引
     if _G.ECS_OnKartCreated then
-        _G.ECS_OnKartCreated(KartManager.PLAYER_KART_IDX, self.goPlayKart_)
-        -- print("[RigidbodyFPSWalker] ECS notification sent for kart", KartManager.PLAYER_KART_IDX)
+        _G.ECS_OnKartCreated(playerKartIndex, self.goPlayKart_)
+        print(`[RigidbodyFPSWalker] 通知ECS卡丁车创建，唯一索引: {playerKartIndex}`)
     end
     -- 如果ECS还没准备好，ECS初始化时会主动扫描已存在的卡丁车
 end

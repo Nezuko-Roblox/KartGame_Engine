@@ -1,6 +1,6 @@
 import type { World } from "@rbxts/matter";
 import { ItemBox } from "shared/ecs/components/items";
-import { Workspace } from "@rbxts/services";
+import { RunService } from "@rbxts/services";
 import type { ClientState } from "shared/ecs/constants/client-state";
 
 // 道具盒子生成位置
@@ -55,51 +55,26 @@ const BOX_POSITIONS = [
 ];
 
 /**
- * 创建道具盒子模型
- */
-function createBoxModel(position: Vector3): Part {
-	const part = new Instance("Part");
-	part.Name = "ItemBox";
-	part.Size = new Vector3(4, 4, 4);
-	part.Position = position;
-	part.Anchored = true;
-	part.CanCollide = false;
-	part.BrickColor = new BrickColor("Bright yellow");
-	part.Material = Enum.Material.Neon;
-	part.Transparency = 0.3;
-	part.Parent = Workspace;
-	return part;
-}
-
-/**
  * 插件：初始化道具盒子
- * 这个插件只在启动时运行一次，创建所有道具盒子
+ * 只在服务端创建道具盒子实体，客户端通过复制系统接收
  */
-export function initializeItemBoxes(world: World, state: ClientState): void {
-	print("[ItemBoxPlugin] Initializing item boxes...");
+export function initializeItemBoxes(world: World): void {
+	// 只在服务端创建道具盒子实体
+	if (!RunService.IsServer()) return;
 	
-	// 清理已存在的道具盒子（防止热重载重复）
-	const existingBoxes = Workspace.GetChildren().filter(child => 
-		child.IsA("Part") && child.Name === "ItemBox"
-	);
-	for (const box of existingBoxes) {
-		box.Destroy();
-	}
+	print("[ItemBoxPlugin] Initializing item boxes on server...");
 	
-	// 创建道具盒子
+	// 创建道具盒子实体（不创建模型，模型由客户端系统负责）
 	for (const position of BOX_POSITIONS) {
-		const model = createBoxModel(position);
-		
 		world.spawn(
 			ItemBox({
 				position: position,
 				available: true,
 				respawnDelay: 5,
 				collisionRadius: 6,
-				model: model,
 			})
 		);
 	}
 	
-	print(`[ItemBoxPlugin] Created ${BOX_POSITIONS.size()} item boxes`);
+	print(`[ItemBoxPlugin] Created ${BOX_POSITIONS.size()} item boxes on server`);
 }

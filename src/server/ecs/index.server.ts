@@ -5,6 +5,8 @@ import { $env } from "rbxts-transform-env";
 import type { ClientState } from "shared/ecs/constants/client-state";
 import { start } from "shared/ecs/start";
 import { setupTags } from "shared/ecs/utils/setup-tags";
+import { initializeItemBoxes } from "shared/ecs/plugins/initialize-item-boxes";
+import { KartECSBridge } from "shared/ecs/bridge/kart-ecs-bridge";
 
 // 注册默认命令
 Cmdr.RegisterDefaultCommands();
@@ -19,7 +21,23 @@ declare const script: { systems: Folder };
 const world = start(
 	[script.systems, ReplicatedStorage.TS.ecs.systems],
 	{} as ClientState,
-)(setupTags);
+)(setupTags, initializeItemBoxes);
+
+// 初始化卡丁车ECS桥接系统
+const kartBridge = KartECSBridge.getInstance();
+kartBridge.initialize(world);
+print("[Server] KartECSBridge initialized");
+
+// 设置道具使用远程事件监听器
+import { remotes } from "shared/remotes";
+import itemActivationSystemModule = require("shared/ecs/systems/items/item-activation-system");
+
+print("[Server] 设置道具使用远程事件监听器...");
+remotes.items.requestUseItem.connect((player, kartIndex) => {
+	print(`[Server] 收到玩家 ${player.Name} 的使用道具请求，卡丁车索引: ${kartIndex}`);
+	itemActivationSystemModule.addUseItemRequest(kartIndex);
+});
+print("[Server] 道具使用远程事件监听器设置完成");
 
 // 注册命令执行前的权限检查钩子
 Cmdr.Registry.RegisterHook("BeforeRun", (context: CommandContextWithWorld) => {

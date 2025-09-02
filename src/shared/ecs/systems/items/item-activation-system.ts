@@ -1,82 +1,104 @@
 import type { World, AnyEntity } from "@rbxts/matter";
-import { ItemEventBus } from "shared/ecs/bridge/event-bus";
 import { KartECSBridge } from "shared/ecs/bridge/kart-ecs-bridge";
 import { ItemHolder, KartReference } from "shared/ecs/components/items";
 import { BoostItem } from "shared/ecs/items/implementations/boost-item";
-import { Stack } from "shared/util/stack";
+import { BananaItem } from "shared/ecs/items/implementations/banana-item";
+import { ShieldItem } from "shared/ecs/items/implementations/shield-item";
+import { MissileItem } from "shared/ecs/items/implementations/missile-item";
+import { RunService } from "@rbxts/services";
+
+// 存储待处理的使用道具请求
+const pendingUseRequests: Array<{ kartIndex: number; timestamp: number }> = [];
 
 /**
- * 道具激活系统 - 处理道具使用
+ * 添加使用道具请求（由远程事件调用）
+ */
+function addUseItemRequest(kartIndex: number): void {
+	print(`[ItemActivationSystem] 添加使用道具请求到队列，卡丁车: ${kartIndex}`);
+	pendingUseRequests.push({
+		kartIndex,
+		timestamp: tick(),
+	});
+	print(`[ItemActivationSystem] 当前队列长度: ${pendingUseRequests.size()}`);
+}
+
+/**
+ * 道具激活系统 - 处理道具使用（仅服务端）
  */
 function itemActivationSystem(world: World): void {
-	
-	const bridge = KartECSBridge.getInstance();
-	// 确保桥接器已初始化
-	bridge.initialize(world);
-	const events = ItemEventBus.consume();
+	// 只在服务端运行
+	if (!RunService.IsServer()) return;
 
-	// 处理使用道具事件
-	for (const event of events) {
-		if (event.type !== "USE_ITEM") continue;
-		
-		print(`[ItemActivationSystem] Processing USE_ITEM for kart ${event.kartIndex}, world: ${tostring(world)}`);
+	// 处理所有待处理的使用道具请求
+	while (pendingUseRequests.size() > 0) {
+		const request = pendingUseRequests.shift();
+		if (!request) break;
 
-		const entity = bridge.getEntityByKartIndex(event.kartIndex);
+		print(`[ItemActivationSystem] 处理使用道具请求，卡丁车: ${request.kartIndex}`);
+
+		// 获取对应的ECS实体
+		const bridge = KartECSBridge.getInstance();
+		const entity = bridge.getEntityByKartIndex(request.kartIndex);
+
 		if (!entity || !world.contains(entity)) {
-			warn(`[ItemActivationSystem] Entity not found for kart ${event.kartIndex}`);
+			warn(`[ItemActivationSystem] Entity not found for kart ${request.kartIndex}`);
 			continue;
 		}
-		
-		print(`[ItemActivationSystem] Found entity ${entity} for kart ${event.kartIndex}`);
 
 		const holder = world.get(entity, ItemHolder);
 		const kartRef = world.get(entity, KartReference);
 
 		if (!holder || !kartRef) {
-			warn(`[ItemActivationSystem] Missing components for kart ${event.kartIndex}:`);
-			warn(`  - ItemHolder: ${holder ? "present" : "missing"}`);
-			warn(`  - KartReference: ${kartRef ? "present" : "missing"}`);
+			warn(`[ItemActivationSystem] 缺少必要组件，卡丁车: ${request.kartIndex}`);
 			continue;
 		}
 
-		// 从栈顶获取道具（使用peek查看，不立即弹出）
-		const item = holder.itemStack.peek();
+		// 从栈顶获取道具（数组末尾为栈顶）
+		const item = holder.items[holder.items.size() - 1];
 		if (!item) {
-			print(`[ItemActivationSystem] No items in stack for kart ${event.kartIndex}`);
+			print(`[ItemActivationSystem] 道具栈为空，卡丁车 ${request.kartIndex}，栈大小: ${holder.items.size()}`);
+			
+			// 显示栈的详细内容
+			print(`[ItemActivationSystem] 栈内容: [${holder.items.join(", ")}]`);
 			continue;
 		}
+
+		print(`[ItemActivationSystem] 准备使用道具: ${item}，栈大小: ${holder.items.size()}`);
 
 		// 检查冷却时间
 		const now = tick();
 		if (holder.lastUsedTime && now - holder.lastUsedTime < 0.5) {
-			print(`[ItemActivationSystem] Item on cooldown for kart ${event.kartIndex}`);
+			print(`[ItemActivationSystem] 道具冷却中，卡丁车: ${request.kartIndex}`);
 			continue;
 		}
 
 		// 检查是否被冻结
 		if (holder.frozen) {
-			print(`[ItemActivationSystem] Kart ${event.kartIndex} is frozen`);
+			print(`[ItemActivationSystem] 道具被冻结，卡丁车: ${request.kartIndex}`);
 			continue;
 		}
 
 		// 激活道具
-		print(`[ItemActivationSystem] Activating item: ${item} for kart ${event.kartIndex}`);
+		print(`[ItemActivationSystem] 开始激活道具: ${item}`);
 		activateItem(world, entity, item, kartRef);
 
-		// 从栈中弹出道具（消耗）
-		const newStack = holder.itemStack.clone();
-		newStack.pop();
+		// 从栈中弹出道具（消耗）- 移除数组末尾元素
+		const newItems = [...holder.items];
+		newItems.pop();
 
 		// 更新持有者状态
 		world.insert(
 			entity,
 			holder.patch({
-				itemStack: newStack,
+				items: newItems,
 				lastUsedTime: now,
 			}),
 		);
 
-		print(`[ItemActivationSystem] Kart ${event.kartIndex} used item: ${item}`);
+		print(`[ItemActivationSystem] 道具使用完成，剩余道具: ${newItems.size()}`);
+		
+		// 显示剩余道具栈内容
+		print(`[ItemActivationSystem] 剩余道具栈: [${newItems.join(", ")}]`);
 	}
 }
 
@@ -84,62 +106,48 @@ function itemActivationSystem(world: World): void {
  * 激活具体道具
  */
 function activateItem(world: World, entity: AnyEntity, itemType: string, kartRef: KartReference): void {
+	print(`[ItemActivationSystem] 激活道具类型: ${itemType}，卡丁车: ${kartRef.kartIndex}`);
+	
 	switch (itemType) {
 		case "Booster":
+			print(`[ItemActivationSystem] 激活加速道具`);
 			BoostItem.activate(world, entity, kartRef);
 			break;
 
 		case "Banana":
-			// TODO: 实现香蕉道具
-			print("[ItemActivationSystem] Banana item not implemented yet");
-			break;
-
-		case "UFO":
-			// TODO: 实现UFO道具
-			print("[ItemActivationSystem] UFO item not implemented yet");
-			break;
-
-		case "WaterFly":
-			// TODO: 实现水上飞行道具
-			print("[ItemActivationSystem] WaterFly item not implemented yet");
-			break;
-
-		case "WaterBomb":
-			// TODO: 实现水炸弹道具
-			print("[ItemActivationSystem] WaterBomb item not implemented yet");
-			break;
-
-		case "Flip":
-			// TODO: 实现翻转道具
-			print("[ItemActivationSystem] Flip item not implemented yet");
-			break;
-
-		case "Devil":
-			// TODO: 实现恶魔道具
-			print("[ItemActivationSystem] Devil item not implemented yet");
-			break;
-
-		case "WaterMissile":
-			// TODO: 实现水导弹道具
-			print("[ItemActivationSystem] WaterMissile item not implemented yet");
-			break;
-
-		case "Guard":
-			// TODO: 实现护盾道具
-			print("[ItemActivationSystem] Guard item not implemented yet");
+			print(`[ItemActivationSystem] 激活香蕉道具`);
+			BananaItem.activate(world, entity, kartRef);
 			break;
 
 		case "Shield":
-			// TODO: 实现护盾道具
-			print("[ItemActivationSystem] Shield item not implemented yet");
+		case "Guard":
+			print(`[ItemActivationSystem] 激活护盾道具`);
+			ShieldItem.activate(world, entity, kartRef);
+			break;
+
+		case "WaterMissile":
+			print(`[ItemActivationSystem] 激活水弹道具`);
+			MissileItem.activate(world, entity, kartRef);
+			break;
+
+		case "UFO":
+		case "WaterFly":
+		case "WaterBomb":
+		case "Flip":
+		case "Devil":
+			// 基本的占位实现
+			print(`[ItemActivationSystem] Kart ${kartRef.kartIndex} used ${itemType}! (Not fully implemented)`);
 			break;
 
 		default:
 			warn(`[ItemActivationSystem] Unknown item type: ${itemType}`);
 	}
+	
+	print(`[ItemActivationSystem] 道具激活完成: ${itemType}`);
 }
 
 export = {
-	priority: 10, 
+	priority: 10,
 	system: itemActivationSystem,
+	addUseItemRequest,
 };

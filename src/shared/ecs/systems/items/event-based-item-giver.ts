@@ -1,13 +1,17 @@
-import type { World } from "@rbxts/matter";
+import type { World, AnyEntity } from "@rbxts/matter";
 import { ItemEventBus } from "shared/ecs/bridge/event-bus";
 import { ItemHolder, KartReference } from "shared/ecs/components/items";
 import { KartECSBridge } from "shared/ecs/bridge/kart-ecs-bridge";
+import { RunService } from "@rbxts/services";
 
 /**
  * 基于事件的道具给予系统
  * 监听事件总线，处理道具给予请求
+ * 只在服务端运行，确保道具状态统一管理
  */
 function eventBasedItemGiverSystem(world: World): void {
+	// 只在服务端运行
+	if (!RunService.IsServer()) return;
 	// 消费所有待处理的事件
 	const events = ItemEventBus.consume();
 	
@@ -22,7 +26,7 @@ function eventBasedItemGiverSystem(world: World): void {
 			continue;
 		}
 		
-		// 获取对应的ECS实体
+		// 获取对应的ECS实体（服务端）
 		const bridge = KartECSBridge.getInstance();
 		const entity = bridge.getEntityByKartIndex(event.kartIndex);
 		
@@ -39,52 +43,26 @@ function eventBasedItemGiverSystem(world: World): void {
 			warn(`[EventItemGiver] 卡丁车实体缺少必要组件`);
 			continue;
 		}
+
+		// 尝试将道具推入栈（数组末尾为栈顶）
+		const newItems = [...holder.items];
 		
-		// 尝试将道具推入栈
-		const newStack = holder.itemStack.clone();
-		const pushSuccess = newStack.push(data.itemType);
-		
-		if (pushSuccess) {
-			// 成功推入道具
+		if (newItems.size() < holder.maxSlots) {
+			// 栈未满，直接推入
+			newItems.push(data.itemType);
+			
 			world.insert(entity, holder.patch({
-				itemStack: newStack,
+				items: newItems,
 			}));
-			
-			print(`[EventItemGiver] 玩家 ${event.kartIndex} 获得道具: ${data.itemType}`);
-			
-			// 显示当前栈状态
-			const items = newStack.toArray();
-			const display: string[] = [];
-			for (let i = 0; i < holder.maxSlots; i++) {
-				const item = items[i];
-				display.push(item !== undefined ? item : "空");
-			}
-			print(`[EventItemGiver] 道具栈状态: [${display.join(", ")}]`);
 		} else {
-			// 栈满，需要替换最旧的道具
-			print(`[EventItemGiver] 道具栈满，替换最旧道具`);
-			
-			// 创建新栈
-			const newStack = holder.itemStack.clone();
-			// 移除栈底（最旧的道具）
-			const items = holder.itemStack.toArray();
-			newStack.clear();
-			
-			// 从第二个道具开始重新入栈
-			for (let i = 1; i < items.size(); i++) {
-				const item = items[i];
-				if (item !== undefined) {
-					newStack.push(item);
-				}
-			}
-			// 推入新道具
-			newStack.push(data.itemType);
-			
+			// 栈满，需要替换最旧的道具（移除数组开头，添加到末尾）
+			// 移除最旧的道具（数组开头）并添加新道具到栈顶（数组末尾）
+			newItems.shift(); // 移除数组第一个元素（栈底/最旧道具）
+			newItems.push(data.itemType); // 添加到数组末尾（栈顶）
+
 			world.insert(entity, holder.patch({
-				itemStack: newStack,
+				items: newItems,
 			}));
-			
-			print(`[EventItemGiver] 玩家 ${event.kartIndex} 获得道具（替换）: ${data.itemType}`);
 		}
 	}
 }

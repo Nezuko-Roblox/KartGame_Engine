@@ -7,8 +7,21 @@ KartManager.__index = KartManager
 KartManager.KART_SCALE_FACTOR = 0.15
 KartManager.MAX_KART = 6
 KartManager.KART_GRAVITY = -49.0
-KartManager.PLAYER_KART_IDX = 1
+KartManager.PLAYER_KART_IDX = 1  -- 保留为默认值，但客户端将使用动态值
 KartManager.FIXED_UPDATE_COUNTER = 0
+
+-- 获取本地玩家的唯一卡丁车索引
+function KartManager.GetPlayerKartIndex()
+    local Players = game:GetService("Players")
+    local player = Players.LocalPlayer
+    if player then
+        -- 使用玩家UserId作为唯一索引，确保每个客户端都有不同的索引
+        return player.UserId
+    else
+        -- 服务端或无玩家时使用默认值
+        return KartManager.PLAYER_KART_IDX
+    end
+end
 
 -- 单例模式
 local instance_ = nil
@@ -52,7 +65,9 @@ function KartManager:SetKart(idx, builder, controller, wheelPos)
     self.goKart_[idx] = builder:Build()
     self.goKart_[idx]:setReKart(controller, wheelPos)
     
-    if (idx) == KartManager.PLAYER_KART_IDX then
+    -- 使用动态获取的玩家卡丁车索引
+    local playerKartIndex = KartManager.GetPlayerKartIndex()
+    if (idx) == playerKartIndex then
         self.goPlayKart_ = self.goKart_[idx]
     end
     

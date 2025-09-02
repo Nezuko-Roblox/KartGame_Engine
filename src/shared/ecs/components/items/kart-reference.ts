@@ -10,6 +10,8 @@ export const KartReference = component<{
 	kartInstance: unknown;
 	/** 是否是玩家 */
 	isPlayer: boolean;
+	/** 当前位置（服务端用于碰撞检测） */
+	position?: Vector3;
 }>("KartReference");
 
 export type KartReference = ReturnType<typeof KartReference>;

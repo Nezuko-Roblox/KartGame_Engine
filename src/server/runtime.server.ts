@@ -13,6 +13,7 @@ function start(): void {
 	Modding.registerDependency<Logger>(ctor => Log.ForContext(ctor));
 
 	Flamework.addPaths("src/server/services");
+	Flamework.addPaths("src/server/controllers");
 
 	Log.Info("Flamework ignite!");
 	Flamework.ignite();

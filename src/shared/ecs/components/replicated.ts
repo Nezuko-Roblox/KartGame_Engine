@@ -6,6 +6,9 @@ import {
 	Enemy,
 	Gibs,
 	Health,
+	ItemBox,
+	ItemHolder,
+	KartReference,
 	Movement,
 	ReceiveForce,
 	TrackSync,
@@ -18,6 +21,8 @@ export const REPLICATED_COMPONENTS = new Set<ComponentCtor>([
 	Enemy,
 	Gibs,
 	Health,
+	ItemBox,
+	KartReference,
 	Movement,
 	TrackSync,
 	Transform,
@@ -26,5 +31,6 @@ export const REPLICATED_COMPONENTS = new Set<ComponentCtor>([
 export const REPLICATED_PLAYER_ONLY = new Set<ComponentCtor>([
 	DamageResistance,
 	Health,
+	ItemHolder, // 道具槽应该只复制给对应的玩家
 	ReceiveForce,
 ]);

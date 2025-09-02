@@ -1,6 +1,8 @@
 import type { World } from "@rbxts/matter";
 import { ItemEventBus } from "shared/ecs/bridge/event-bus";
 import { KartReference } from "shared/ecs/components/items";
+import { RunService } from "@rbxts/services";
+import { remotes } from "shared/remotes";
 
 // 记录上次检查的集气值，防止重复触发
 const lastGaugeValues = new Map<number, number>();
@@ -10,6 +12,8 @@ const lastGaugeValues = new Map<number, number>();
  * 与 event-based-item-giver.ts 配合工作
  */
 function driftGaugeItemSystem(world: World): void {
+	// 只在客户端运行，因为集气数据在客户端
+	if (!RunService.IsClient()) return;
 	// 查找所有卡丁车实体
 	for (const [entity, kartRef] of world.query(KartReference)) {
 		// 获取 GoKart 实例（可以是玩家或AI）
@@ -33,14 +37,8 @@ function driftGaugeItemSystem(world: World): void {
 		if (currentGauge >= maxGauge && lastGauge < maxGauge) {
 			print(`[DriftGauge] 卡丁车 ${kartRef.kartIndex} 集气满！`);
 			
-			// 通过事件总线触发道具给予
-			// event-based-item-giver.ts 会处理这个事件
-			ItemEventBus.push({
-				type: "PICKUP",
-				kartIndex: kartRef.kartIndex,
-				data: { itemType: "Booster" },
-				timestamp: tick(),
-			});
+			// 通知服务端给予道具
+			remotes.items.notifyItemPickup.fire(kartRef.kartIndex, "Booster");
 			
 			// 重置集气条
 			if (goKart.ResetDriftGauge) {

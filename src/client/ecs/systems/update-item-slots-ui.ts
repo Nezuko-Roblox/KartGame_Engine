@@ -19,10 +19,16 @@ function updateItemSlotsUI(world: World): void {
 	let entityCount = 0;
 
 	// 查找本地玩家的卡丁车实体
-	for (const [entity, kartRef, holder] of world.query(KartReference, ItemHolder)) {
+	for (const [entity, kartRef] of world.query(KartReference)) {
 		entityCount++;
 
 		if (!kartRef.isPlayer) continue;
+
+		// 获取ItemHolder组件（可能还没有从服务端复制过来）
+		const holder = world.get(entity, ItemHolder);
+		if (!holder) {
+			continue;
+		}
 
 		// 确保UI根存在
 		if (!root || !currentGui || !currentGui.Parent) {
@@ -37,7 +43,7 @@ function updateItemSlotsUI(world: World): void {
 			currentGui.ResetOnSpawn = false;
 			currentGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling;
 			currentGui.DisplayOrder = 10; // 确保显示在前面
-			
+
 			// 确保 PlayerGui 存在
 			const playerGui = LocalPlayer.FindFirstChild("PlayerGui") || LocalPlayer.WaitForChild("PlayerGui");
 			currentGui.Parent = playerGui;
@@ -46,13 +52,12 @@ function updateItemSlotsUI(world: World): void {
 			root = ReactRoblox.createRoot(currentGui);
 		}
 
-		// 从栈中获取道具数组
-		const stackItems = holder.itemStack.toArray();
-		
-		// 创建显示数组
+		// 从道具数组获取显示数据（数组末尾为栈顶，优先显示）
 		const displayItems: (string | undefined)[] = [];
 		for (let i = 0; i < holder.maxSlots; i++) {
-			displayItems[i] = stackItems[i];
+			// 从栈顶开始显示：数组末尾为栈顶，所以倒序取值
+			const itemIndex = holder.items.size() - 1 - i;
+			displayItems[i] = itemIndex >= 0 ? holder.items[itemIndex] : undefined;
 		}
 
 		// 更新UI
@@ -76,13 +81,13 @@ function updateItemSlotsUI(world: World): void {
 		currentGui.ResetOnSpawn = false;
 		currentGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling;
 		currentGui.DisplayOrder = 10;
-		
+
 		const playerGui = LocalPlayer.FindFirstChild("PlayerGui") || LocalPlayer.WaitForChild("PlayerGui");
 		currentGui.Parent = playerGui;
 
 		// 创建React根
 		root = ReactRoblox.createRoot(currentGui);
-		
+
 		// 渲染空的道具栏
 		root.render(
 			React.createElement(ItemSlotsDisplay, {

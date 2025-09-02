@@ -4,5 +4,6 @@ export * from "./cheats";
 export * from "./client";
 export * from "./damage";
 export * from "./enemy";
+export * from "./items";
 export * from "./player";
 export * from "./stage";

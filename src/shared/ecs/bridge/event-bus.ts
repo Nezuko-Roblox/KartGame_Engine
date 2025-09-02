@@ -13,6 +13,8 @@ export interface ItemEvent {
  */
 export class ItemEventBus {
 	private static events: Array<ItemEvent> = [];
+	
+
 
 	/**
 	 * 推送事件
@@ -34,16 +36,6 @@ export class ItemEventBus {
 	 * 设置全局函数供Lua调用
 	 */
 	static setupGlobalFunctions(): void {
-		// 使用道具
-		(_G as unknown as { ECS_UseItem?: (kartIndex: number) => void }).ECS_UseItem = (kartIndex: number) => {
-			this.push({
-				type: "USE_ITEM",
-				kartIndex,
-				timestamp: tick(),
-			});
-			print(`[EventBus] Received USE_ITEM event from kart ${kartIndex}`);
-		};
-
 		// 道具碰撞
 		(_G as unknown as { ECS_ItemCollision?: (kartIndex: number, itemId: string) => void }).ECS_ItemCollision = (kartIndex: number, itemId: string) => {
 			this.push({
