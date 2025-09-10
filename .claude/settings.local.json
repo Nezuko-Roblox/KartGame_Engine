@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(/C:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\GameStage/**)",
+      "Read(/C:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\GameStage/**)",
+      "Read(/C:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\KartClient/**)",
+      "Read(/C:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\KartClient/**)",
+      "Read(/C:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\KartClient/**)",
+      "Read(/C:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\KartClient/**)",
+      "Read(/C:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\KartMove/**)",
+      "Read(/C:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\KartMove/**)",
+      "Read(/C:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\KartMove/**)",
+      "Read(/C:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\KartMove/**)",
+      "Read(/C:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\KartMove/**)",
+      "Read(/c:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine/**)",
+      "Read(/c:\\Users\\user\\Desktop\\Test\\KartGame_Engine/**)",
+      "Read(/c:\\Users\\user\\Desktop\\Test\\KartGame_Engine/**)",
+      "Read(/c:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\KartMove/**)",
+      "Read(/c:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\KartMove/**)",
+      "Read(/c:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\KartMove/**)",
+      "Read(/c:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\KartMove/**)",
+      "Read(/c:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\KartMove/**)",
+      "Read(/c:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\KartMove/**)",
+      "Read(/c:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\KartClient/**)",
+      "Read(/c:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\KartClient/**)",
+      "Read(/c:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\KartShared/**)",
+      "Read(/c:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\KartShared/**)",
+      "Read(/c:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine/**)",
+      "Read(/C:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\Boost/**)",
+      "Read(/C:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\KartClient/**)",
+      "Read(/C:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\sources\\roblox-lua-items-network\\shared\\kartEngine\\KartClient/**)",
+      "Read(/C:\\Users\\user\\Desktop\\Test\\KartGame_Engine\\src\\shared\\kartEngine\\KartClient/**)",
+      "Bash(mkdir:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
